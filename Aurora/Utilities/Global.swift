@@ -10,4 +10,22 @@ import UIKit
 
 class Global: NSObject {
 
+    static let FONTNAME_LIGHT_ITALIC = "Averta-LightItalic"
+    static let FONTNAME_SEMIBOLD = "Averta-Semibold"
+    
+    
+    static let STORY_BOARD_NAME = "Main"
+
+//    extension NameDescribable {
+//        var typeName: String {
+//            return String(describing: type(of: self))
+//        }
+//        
+//        static var typeName: String {
+//            return String(describing: self)
+//        }
+//    }
+
 }
+
+

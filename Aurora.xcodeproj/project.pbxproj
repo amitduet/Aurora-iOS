@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F02A43222566B010044DAB1 /* HomeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02A43122566B010044DAB1 /* HomeDto.swift */; };
+		8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F07BE18225CE21900B43D71 /* HomeViewController.swift */; };
 		8F0D9CF822527BE700988960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D9CF722527BE700988960 /* AppDelegate.swift */; };
 		8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0D9CF922527BE700988960 /* ViewController.swift */; };
 		8F0D9CFD22527BE700988960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F0D9CFB22527BE700988960 /* Main.storyboard */; };
@@ -31,11 +32,13 @@
 		8F0EE550225504F800413123 /* Aurora THIN ITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE53B225504F100413123 /* Aurora THIN ITALIC.OTF */; };
 		8F0EE551225504F800413123 /* Aurora THIN.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE539225504F000413123 /* Aurora THIN.OTF */; };
 		8F0EE552225504F800413123 /* Aurora.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE538225504F000413123 /* Aurora.OTF */; };
+		8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */; };
 		E4766DB662C29648D988B0EB /* Pods_Aurora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB334F459A3E0875724573D /* Pods_Aurora.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F02A43122566B010044DAB1 /* HomeDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDto.swift; sourceTree = "<group>"; };
+		8F07BE18225CE21900B43D71 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F0D9CF422527BE700988960 /* Aurora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aurora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F0D9CF722527BE700988960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F0D9CF922527BE700988960 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		8F0EE540225504F100413123 /* Aurora BOLD ITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora BOLD ITALIC.OTF"; sourceTree = "<group>"; };
 		8F0EE541225504F100413123 /* Aurora REGULAR ITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora REGULAR ITALIC.OTF"; sourceTree = "<group>"; };
 		8F0EE542225504F100413123 /* Aurora EXTRATHIN.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora EXTRATHIN.OTF"; sourceTree = "<group>"; };
+		8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryDto.swift; sourceTree = "<group>"; };
 		94D5C4B6898F53B346745865 /* Pods-Aurora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.debug.xcconfig"; sourceTree = "<group>"; };
 		AFB334F459A3E0875724573D /* Pods_Aurora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aurora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A64FFAC14DD36B395B4BE4 /* Pods-Aurora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				8F02A43122566B010044DAB1 /* HomeDto.swift */,
+				8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8F0D9CF922527BE700988960 /* ViewController.swift */,
+				8F07BE18225CE21900B43D71 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,7 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */,
 				8F0EE5312255021100413123 /* APIManager.swift in Sources */,
+				8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */,
 				8F02A43222566B010044DAB1 /* HomeDto.swift in Sources */,
 				8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */,
 				8F0D9CF822527BE700988960 /* AppDelegate.swift in Sources */,
