@@ -95,8 +95,8 @@ class APIManager: NSObject {
     }
     
     //MARK: get Home category
-    func getHome( success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
-        guard let url = URL(string: String(format: "%@homeByCategory/%d",BASE_URL,getCategoryId())) else {
+    func getHome( categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
+        guard let url = URL(string: String(format: "%@homeByCategory/%d",BASE_URL,categoryId)) else {
             return
         }
         let headers = ["Authorization": self.getJWTToken()]

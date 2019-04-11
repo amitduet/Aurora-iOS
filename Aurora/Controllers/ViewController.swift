@@ -109,12 +109,6 @@ class ViewController: UIViewController {
             
         }
         
-//        APIManager.init().getHome(success: { data in
-//
-//        }) { error in
-//
-//            debugPrint(error.localizedDescription)
-//        }
         
         
     }
