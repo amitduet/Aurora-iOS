@@ -58,7 +58,7 @@ class OfferSLiderCollectionViewCell: UICollectionViewCell,UICollectionViewDelega
     
     @IBAction func pageChangesControllerAction(_ sender: CHIPageControlJaloro) {
         
-        self.sliderCollectionView.scrollToItem(at: IndexPath.init(row: Int(sender.acti), section: 0), at:.centeredHorizontally, animated: true)
+//        self.sliderCollectionView.scrollToItem(at: IndexPath.init(row: Int(sender.acti), section: 0), at:.centeredHorizontally, animated: true)
     }
     
     class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, sliders:[DiscountBanner]) -> OfferSLiderCollectionViewCell {
