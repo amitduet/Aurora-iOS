@@ -10,5 +10,6 @@ target 'Aurora' do
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'SDWebImage', '~> 4.0'
   pod 'Alamofire'
+  pod 'CHIPageControl/Jaloro'
   
 end

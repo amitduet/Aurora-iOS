@@ -1,33 +1,34 @@
-//
-//  HomeDto.swift
-//  Aurora
-//
-//  Created by Amit Chowdhury on 4/4/19.
-//  Copyright © 2019 Amit Chowdhury. All rights reserved.
-//
-
 // To parse the JSON, add this file to your project and do:
 //
 //   let homeDto = try? newJSONDecoder().decode(HomeDto.self, from: jsonData)
 
 import Foundation
 
-struct HomeDto: Codable {
-    let status: String
+class HomeDto: Codable {
+    let categoryID: String
     let sliders: [DiscountBanner]
     let discountProducts: [DiscountProduct]
     let newlyArrived: [NewlyArrived]
     let discountBanner: [DiscountBanner]
     
     enum CodingKeys: String, CodingKey {
-        case status, sliders
+        case categoryID = "categoryId"
+        case sliders
         case discountProducts = "discount_products"
         case newlyArrived = "newly_arrived"
         case discountBanner
     }
+    
+    init(categoryID: String, sliders: [DiscountBanner], discountProducts: [DiscountProduct], newlyArrived: [NewlyArrived], discountBanner: [DiscountBanner]) {
+        self.categoryID = categoryID
+        self.sliders = sliders
+        self.discountProducts = discountProducts
+        self.newlyArrived = newlyArrived
+        self.discountBanner = discountBanner
+    }
 }
 
-struct DiscountBanner: Codable {
+class DiscountBanner: Codable {
     let bannerImageID, bannerID, languageID: Int
     let title, link, image: String
     let sortOrder: Int
@@ -39,29 +40,55 @@ struct DiscountBanner: Codable {
         case title, link, image
         case sortOrder = "sort_order"
     }
+    
+    init(bannerImageID: Int, bannerID: Int, languageID: Int, title: String, link: String, image: String, sortOrder: Int) {
+        self.bannerImageID = bannerImageID
+        self.bannerID = bannerID
+        self.languageID = languageID
+        self.title = title
+        self.link = link
+        self.image = image
+        self.sortOrder = sortOrder
+    }
 }
 
-struct DiscountProduct: Codable {
+class DiscountProduct: Codable {
     let productSpecialID, productID: Int
-    let name, model, price, oldPrice: String
+    let name, model, image, price: String
+    let oldPrice: String
     let priority, customerGroupID: Int
     let dateStart, dateEnd: String
+    let categoryID: Int
     
     enum CodingKeys: String, CodingKey {
         case productSpecialID = "product_special_id"
         case productID = "product_id"
-        case name, model, price, oldPrice, priority
+        case name, model, image, price, oldPrice, priority
         case customerGroupID = "customer_group_id"
         case dateStart = "date_start"
         case dateEnd = "date_end"
+        case categoryID = "category_id"
+    }
+    
+    init(productSpecialID: Int, productID: Int, name: String, model: String, image: String, price: String, oldPrice: String, priority: Int, customerGroupID: Int, dateStart: String, dateEnd: String, categoryID: Int) {
+        self.productSpecialID = productSpecialID
+        self.productID = productID
+        self.name = name
+        self.model = model
+        self.image = image
+        self.price = price
+        self.oldPrice = oldPrice
+        self.priority = priority
+        self.customerGroupID = customerGroupID
+        self.dateStart = dateStart
+        self.dateEnd = dateEnd
+        self.categoryID = categoryID
     }
 }
 
-struct NewlyArrived: Codable {
-    let productID: Int
-    let name, model: String
-    let sku: Sku
-    let price: String
+class NewlyArrived: Codable {
+    let categoryID, productID: Int
+    let name, model, sku, price: String
     let quantity: Int
     let image: String
     let manufacturerID: Int
@@ -70,13 +97,11 @@ struct NewlyArrived: Codable {
     let dateAvailable, weight, length, width: String
     let height, description: String
     let stockStatus: StockStatus
-    let tag: Tag
-    let metaTitle: String
-    let metaDescription: MetaDescription
-    let metaKeyword: MetaKeyword
+    let tag, metaTitle, metaDescription, metaKeyword: String
     let dateAdded, dateModified: String
     
     enum CodingKeys: String, CodingKey {
+        case categoryID = "category_id"
         case productID = "product_id"
         case name, model, sku, price, quantity, image
         case manufacturerID = "manufacturer_id"
@@ -89,22 +114,34 @@ struct NewlyArrived: Codable {
         case dateAdded = "date_added"
         case dateModified = "date_modified"
     }
-}
-
-enum MetaDescription: String, Codable {
-    case empty = ""
-    case jeansPantForMen = "Jeans Pant for men"
-}
-
-enum MetaKeyword: String, Codable {
-    case empty = ""
-    case jeansPant = "Jeans Pant "
-}
-
-enum Sku: String, Codable {
-    case empty = ""
-    case sku00 = "sku-00"
-    case test1 = "test 1"
+    
+    init(categoryID: Int, productID: Int, name: String, model: String, sku: String, price: String, quantity: Int, image: String, manufacturerID: Int, manufacturerName: String, shipping: Int, points: Int, dateAvailable: String, weight: String, length: String, width: String, height: String, description: String, stockStatus: StockStatus, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, dateAdded: String, dateModified: String) {
+        self.categoryID = categoryID
+        self.productID = productID
+        self.name = name
+        self.model = model
+        self.sku = sku
+        self.price = price
+        self.quantity = quantity
+        self.image = image
+        self.manufacturerID = manufacturerID
+        self.manufacturerName = manufacturerName
+        self.shipping = shipping
+        self.points = points
+        self.dateAvailable = dateAvailable
+        self.weight = weight
+        self.length = length
+        self.width = width
+        self.height = height
+        self.description = description
+        self.stockStatus = stockStatus
+        self.tag = tag
+        self.metaTitle = metaTitle
+        self.metaDescription = metaDescription
+        self.metaKeyword = metaKeyword
+        self.dateAdded = dateAdded
+        self.dateModified = dateModified
+    }
 }
 
 enum StockStatus: String, Codable {
@@ -113,7 +150,3 @@ enum StockStatus: String, Codable {
     case the23Days = "2-3 Days"
 }
 
-enum Tag: String, Codable {
-    case empty = ""
-    case jeansMenPant = "jeans, men, pant,"
-}

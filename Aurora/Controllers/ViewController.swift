@@ -52,12 +52,12 @@ class ViewController: UIViewController {
 
          */
 
-        APIManager.init().getAccessToken(success: { (token) in
-            debugPrint(token)
-            // store token
-            
-        }) { (error) in
-        }
+//        APIManager.init().getAccessToken(success: { (token) in
+//            debugPrint(token)
+//            // store token
+//            
+//        }) { (error) in
+//        }
         
 //        APIManager.init().getFirstLoadData(success: { response in
 //            let userList = try JSONDecoder().decode(MainCategoryDto.self, from: data)
@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         
         let homeViewController = UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: HomeViewController.self))as? HomeViewController
         homeViewController?.splashImageName = (sender?.titleLabel?.text?.lowercased())!
-        
+        homeViewController?.mainCategoryId = sender!.tag
         self.navigationController?.pushViewController(homeViewController!, animated: true)
     }
 

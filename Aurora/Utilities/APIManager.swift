@@ -11,7 +11,7 @@ import Alamofire
 
 class APIManager: NSObject {
     
-    let BASE_URL:String = "http://aurorafashionbd.com/ocLiveApi/public/api/"
+    let BASE_URL:String = "https://aurorafashionbd.com/ocLiveApi/public/api/"
     static let IMAGE_BASE_URL = "http://aurorafashionbd.com/2ndphase/aurora/image/"
     let TOKEN_KEY = "token"
     
@@ -96,9 +96,14 @@ class APIManager: NSObject {
     
     //MARK: get Home category
     func getHome( categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
-        guard let url = URL(string: String(format: "%@homeByCategory/%d",BASE_URL,categoryId)) else {
+        guard let url = URL(string: String(format: "%@homeByCategory/%d?",BASE_URL,categoryId)) else {
             return
         }
+        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/59
+        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61
+        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61?
+        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61?
+        
         let headers = ["Authorization": self.getJWTToken()]
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
             

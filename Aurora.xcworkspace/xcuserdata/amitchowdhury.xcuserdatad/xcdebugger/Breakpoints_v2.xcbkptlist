@@ -9,56 +9,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Aurora/Controllers/ViewController.swift"
-            timestampString = "576693649.545146"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in Aurora.ViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Aurora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amitchowdhury/Desktop/Amit/Development/CurrentDevelopment/Aurora/Aurora/Controllers/ViewController.swift"
-                  timestampString = "576515520.857235"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Error) -&gt; () in Aurora.ViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Aurora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amitchowdhury/Desktop/Amit/Development/CurrentDevelopment/Aurora/Aurora/Controllers/ViewController.swift"
-                  timestampString = "576515520.8597749"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.5458339"
+            timestampString = "576953354.564898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -74,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.546611"
+            timestampString = "576953354.565021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -90,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.547184"
+            timestampString = "576953354.565105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -138,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.547666"
+            timestampString = "576953354.565181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -154,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.5481811"
+            timestampString = "576953354.565253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -170,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.5485491"
+            timestampString = "576953354.5653239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -186,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Controllers/ViewController.swift"
-            timestampString = "576693649.548959"
+            timestampString = "576951241.074384"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -202,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Controllers/ViewController.swift"
-            timestampString = "576693649.549385"
+            timestampString = "576951241.074944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -214,64 +166,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Aurora/Controllers/HomeViewController.swift"
-            timestampString = "576693649.549808"
+            filePath = "Aurora/Utilities/APIManager.swift"
+            timestampString = "576953354.56546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "getHome(categoryId:success:failure:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data) -&gt; () in Aurora.HomeViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Aurora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amitchowdhury/Desktop/Amit/Development/CurrentDevelopment/Aurora/Aurora/Controllers/HomeViewController.swift"
-                  timestampString = "576693649.55976"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "305">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data) -&gt; () in Aurora.HomeViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Aurora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amitchowdhury/Desktop/Amit/Development/CurrentDevelopment/Aurora/Aurora/Controllers/HomeViewController.swift"
-                  timestampString = "576693649.565892"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "731">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data) -&gt; () in Aurora.HomeViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "Aurora"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amitchowdhury/Desktop/Amit/Development/CurrentDevelopment/Aurora/Aurora/Controllers/HomeViewController.swift"
-                  timestampString = "576693649.5702929"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "828">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -281,12 +186,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aurora/Utilities/APIManager.swift"
-            timestampString = "576693649.550195"
+            timestampString = "576953354.5655299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "getHome(categoryId:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora/Controllers/ViewController.swift"
+            timestampString = "576951241.075488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "categoryButtonSet(tag:title:categoryButton:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora/Views/ProductCell/OfferSLiderCollectionViewCell.swift"
+            timestampString = "576953354.565639"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora/Views/ProductCell/SliderImageCollectionViewCell.swift"
+            timestampString = "576953354.566203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "cellForCollectionView(collectionView:indexPath:banner:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora/Views/ProductCell/OfferSLiderCollectionViewCell.swift"
+            timestampString = "576953354.566282"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aurora/Views/ProductCell/OfferSLiderCollectionViewCell.swift"
+            timestampString = "576953549.709752"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "pageChangesControllerAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

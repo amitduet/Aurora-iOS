@@ -33,6 +33,12 @@
 		8F0EE551225504F800413123 /* Aurora THIN.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE539225504F000413123 /* Aurora THIN.OTF */; };
 		8F0EE552225504F800413123 /* Aurora.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE538225504F000413123 /* Aurora.OTF */; };
 		8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */; };
+		8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */; };
+		8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */; };
+		8FFA7FDC2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDA2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift */; };
+		8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */; };
+		8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */; };
+		8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */; };
 		E4766DB662C29648D988B0EB /* Pods_Aurora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB334F459A3E0875724573D /* Pods_Aurora.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +71,12 @@
 		8F0EE541225504F100413123 /* Aurora REGULAR ITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora REGULAR ITALIC.OTF"; sourceTree = "<group>"; };
 		8F0EE542225504F100413123 /* Aurora EXTRATHIN.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora EXTRATHIN.OTF"; sourceTree = "<group>"; };
 		8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryDto.swift; sourceTree = "<group>"; };
+		8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFA7FDA2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSLiderCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferSLiderCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		94D5C4B6898F53B346745865 /* Pods-Aurora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.debug.xcconfig"; sourceTree = "<group>"; };
 		AFB334F459A3E0875724573D /* Pods_Aurora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aurora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A64FFAC14DD36B395B4BE4 /* Pods-Aurora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +148,7 @@
 		8F0D9D0B22527E6700988960 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FF539612260E19300DF7568 /* ProductCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +193,19 @@
 				8F0EE538225504F000413123 /* Aurora.OTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8FF539612260E19300DF7568 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */,
+				8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */,
+				8FFA7FDA2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift */,
+				8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */,
+				8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */,
+				8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */,
+			);
+			path = ProductCell;
 			sourceTree = "<group>";
 		};
 		EBAA0C925E237123DF2D4DA2 /* Pods */ = {
@@ -254,10 +280,13 @@
 			files = (
 				8F0EE547225504F800413123 /* Aurora EXTRA BOLD ITALIC.OTF in Resources */,
 				8F0EE552225504F800413123 /* Aurora.OTF in Resources */,
+				8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */,
+				8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */,
 				8F0EE548225504F800413123 /* Aurora EXTRA BOLD.OTF in Resources */,
 				8F0EE54E225504F800413123 /* Aurora SEMIBOLD ITALIC.OTF in Resources */,
 				8F0EE54F225504F800413123 /* Aurora SEMIBOLD.OTF in Resources */,
 				8F0EE54B225504F800413123 /* Aurora LIGHT ITALIC.OTF in Resources */,
+				8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */,
 				8F0EE544225504F800413123 /* Aurora BLACK.OTF in Resources */,
 				8F0D9D0222527BE900988960 /* LaunchScreen.storyboard in Resources */,
 				8F0D9CFF22527BE900988960 /* Assets.xcassets in Resources */,
@@ -303,12 +332,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Aurora/Pods-Aurora-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -325,12 +356,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */,
+				8FFA7FDC2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift in Sources */,
 				8F0EE5312255021100413123 /* APIManager.swift in Sources */,
+				8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */,
 				8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */,
 				8F02A43222566B010044DAB1 /* HomeDto.swift in Sources */,
 				8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */,
 				8F0D9CF822527BE700988960 /* AppDelegate.swift in Sources */,
 				8F0EE52F225501FE00413123 /* Global.swift in Sources */,
+				8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

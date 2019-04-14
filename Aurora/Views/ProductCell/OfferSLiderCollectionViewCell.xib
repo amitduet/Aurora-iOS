@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OfferSLiderCollectionViewCell" id="gTV-IL-0wX" customClass="OfferSLiderCollectionViewCell" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="224"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="224"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Lyl-sm-DKn">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="224"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nbx-bT-qhx">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="gTV-IL-0wX" id="sLk-1q-Nv0"/>
+                            <outlet property="delegate" destination="gTV-IL-0wX" id="EnJ-4j-WxW"/>
+                        </connections>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guf-jt-8Yb" customClass="CHIPageControlJaloro" customModule="CHIPageControl">
+                        <rect key="frame" x="20" y="194" width="260" height="10"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="4ff-zi-TMV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="currentPageTintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="pageChangesControllerAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="OFK-SY-uZ0"/>
+                        </connections>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Lyl-sm-DKn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="6on-YL-htd"/>
+                <constraint firstItem="Lyl-sm-DKn" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="AaJ-Gb-EnE"/>
+                <constraint firstItem="Lyl-sm-DKn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JKk-Cg-vYb"/>
+                <constraint firstAttribute="bottom" secondItem="guf-jt-8Yb" secondAttribute="bottom" constant="20" id="MWh-Bk-zwa"/>
+                <constraint firstItem="Lyl-sm-DKn" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="NIm-SA-R7z"/>
+                <constraint firstAttribute="trailing" secondItem="guf-jt-8Yb" secondAttribute="trailing" constant="20" id="uWJ-0w-9Ec"/>
+                <constraint firstItem="guf-jt-8Yb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ub2-4h-44W"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="300" height="224"/>
+            <connections>
+                <outlet property="sliderCollectionView" destination="Lyl-sm-DKn" id="2Tr-ZI-Dmx"/>
+                <outlet property="sliderView" destination="guf-jt-8Yb" id="wGR-a7-1cY"/>
+            </connections>
+            <point key="canvasLocation" x="110.14492753623189" y="46.875"/>
+        </collectionViewCell>
+    </objects>
+</document>
