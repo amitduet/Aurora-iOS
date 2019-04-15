@@ -28,7 +28,6 @@ class SliderImageCollectionViewCell: UICollectionViewCell {
         cell.sliderImage.sd_setShowActivityIndicatorView(true)
         cell.sliderImage.sd_setIndicatorStyle(.gray)
         cell.sliderImage.sd_setImage(with: imageUrl)
-        cell.backgroundColor = .gray
         return cell
     }
 

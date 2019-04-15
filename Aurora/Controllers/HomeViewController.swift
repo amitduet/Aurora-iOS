@@ -55,33 +55,90 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }
     }
     
+    func calculateNumberOfSection() -> NSInteger {
+        
+        var numberOfSection :NSInteger = 0;
+        
+        if (homeDataDto.sliders.count > 0){
+                numberOfSection += 1
+        }
+        
+        if (homeDataDto.discountBanner.count > 0){
+            numberOfSection += 1
+        }
+
+        if (homeDataDto.newlyArrived.count > 0){
+            numberOfSection += homeDataDto.newlyArrived.count + 1
+        }
+
+        return numberOfSection
+    }
+    
     //MARK:UICollectionView Data Source and Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (homeDataDto != nil){
-            return 2;
+            return calculateNumberOfSection();
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = OfferSLiderCollectionViewCell.cellForCollectionView(collectionView: self.productionCollectionView, indexPath: indexPath, sliders: homeDataDto.sliders)
-        return cell
+        
+        switch indexPath.row {
+        case 0:
+            let cell = OfferSLiderCollectionViewCell.cellForCollectionView(collectionView: self.productionCollectionView, indexPath: indexPath, sliders: homeDataDto.sliders)
+            return cell
+        case 1:
+            let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, banner:self.homeDataDto.discountBanner[0])
+            return cell
+
+        case 2:
+            let cell = TextCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath)
+            return cell
+
+
+        default:
+            let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: homeDataDto.newlyArrived[indexPath.row-3])
+            return cell
+
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        return CGSize(width: width, height: 200)
+
+        switch indexPath.row {
+        case 0:
+            return CGSize(width: width, height: 200)
+        case 1:
+            return CGSize(width: width, height: 100)
+        case 2:
+            return CGSize(width: width, height: 40)
+        default:
+            return CGSize(width: (width - 15)/2, height: (width - 15)/2)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if (section > 3){
+            return 0.0
+        }
         return 5
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if (section > 3){
+            return 0.0
+        }
+
         return 5
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if (section > 3){
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 

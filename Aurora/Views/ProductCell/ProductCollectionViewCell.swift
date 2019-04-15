@@ -30,4 +30,24 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     @IBAction func favoriteButtonPressed(_ sender: Any) {
     }
+    
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, newlyArrived:NewlyArrived) -> ProductCollectionViewCell {
+        let identifier = String(describing: self)
+        
+        collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductCollectionViewCell
+        
+        let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,newlyArrived.image))
+        cell.productImageView.sd_setShowActivityIndicatorView(true)
+        cell.productImageView.sd_setIndicatorStyle(.gray)
+        cell.productImageView.sd_setImage(with: imageUrl)
+
+        cell.productDescriptionLabel.text = newlyArrived.description
+        cell.productPriceLabel.text = String(format:"%@ %@",newlyArrived.price,Global.takaUniCode)
+//        cell.productPreviousPriceLabel.text = newlyArrived.pri
+        cell.backgroundColor = .lightGray
+        return cell
+    }
+
 }

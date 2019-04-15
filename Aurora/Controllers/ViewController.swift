@@ -132,7 +132,6 @@ class ViewController: UIViewController {
         }
     
     @objc func categoryButtonPressed(_ sender: UIButton?) {
-        print("Button Clicked%ld",sender?.tag)
         
         let homeViewController = UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: HomeViewController.self))as? HomeViewController
         homeViewController?.splashImageName = (sender?.titleLabel?.text?.lowercased())!

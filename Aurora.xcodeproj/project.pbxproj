@@ -33,6 +33,8 @@
 		8F0EE551225504F800413123 /* Aurora THIN.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE539225504F000413123 /* Aurora THIN.OTF */; };
 		8F0EE552225504F800413123 /* Aurora.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EE538225504F000413123 /* Aurora.OTF */; };
 		8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */; };
+		8FF504312264D5620042EAB3 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF5042F2264D5620042EAB3 /* TextCollectionViewCell.swift */; };
+		8FF504322264D5620042EAB3 /* TextCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF504302264D5620042EAB3 /* TextCollectionViewCell.xib */; };
 		8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */; };
 		8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */; };
 		8FFA7FDC2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDA2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift */; };
@@ -71,6 +73,8 @@
 		8F0EE541225504F100413123 /* Aurora REGULAR ITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora REGULAR ITALIC.OTF"; sourceTree = "<group>"; };
 		8F0EE542225504F100413123 /* Aurora EXTRATHIN.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aurora EXTRATHIN.OTF"; sourceTree = "<group>"; };
 		8F9881CB225A3BFB00F81F6B /* MainCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryDto.swift; sourceTree = "<group>"; };
+		8FF5042F2264D5620042EAB3 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FF504302264D5620042EAB3 /* TextCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FFA7FDA2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSLiderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */,
 				8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */,
 				8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */,
+				8FF5042F2264D5620042EAB3 /* TextCollectionViewCell.swift */,
+				8FF504302264D5620042EAB3 /* TextCollectionViewCell.xib */,
 			);
 			path = ProductCell;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				8F0EE546225504F800413123 /* Aurora BOLD.OTF in Resources */,
 				8F0EE549225504F800413123 /* Aurora EXTRATHIN ITALIC.OTF in Resources */,
 				8F0EE551225504F800413123 /* Aurora THIN.OTF in Resources */,
+				8FF504322264D5620042EAB3 /* TextCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +364,7 @@
 			files = (
 				8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */,
 				8FFA7FDC2263760F002A96B9 /* OfferSLiderCollectionViewCell.swift in Sources */,
+				8FF504312264D5620042EAB3 /* TextCollectionViewCell.swift in Sources */,
 				8F0EE5312255021100413123 /* APIManager.swift in Sources */,
 				8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */,
 				8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */,
