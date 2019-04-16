@@ -18,7 +18,11 @@ class APIManager: NSObject {
     let authError:NSError = NSError.init(domain: "token expire", code: 401, userInfo: nil)
 
     func getJWTToken ()->String{
-        return "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hdXJvcmFmYXNoaW9uYmQuY29tXC9vY0xpdmVBcGlcL3B1YmxpY1wvYXBpXC9hcGlMb2dpbiIsImlhdCI6MTU1NDM5NTYyMSwiZXhwIjoxNTU2OTg3NjIxLCJuYmYiOjE1NTQzOTU2MjEsImp0aSI6ImNXWXdlTjVuenFGam5BNGsiLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.d09a9iqXa_r_NHvuSe_QtUWlhzaVxWBXOiwHlcfvVgM"
+        
+        let token:String = UserDefaults.standard.value(forKey: TOKEN_KEY) as! String
+        let jwtToken = String(format: "Bearer %@",token)
+        
+        return jwtToken
     }
     
     func getCategoryId() -> Int {
@@ -94,16 +98,13 @@ class APIManager: NSObject {
         }
     }
     
+    
+    
     //MARK: get Home category
     func getHome( categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
         guard let url = URL(string: String(format: "%@homeByCategory/%d?",BASE_URL,categoryId)) else {
             return
         }
-        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/59
-        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61
-        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61?
-        //https://aurorafashionbd.com/ocLiveApi/public/api/homeByCategory/61?
-        
         let headers = ["Authorization": self.getJWTToken()]
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
             
@@ -121,6 +122,7 @@ class APIManager: NSObject {
         }
     }
     
+        
     //MARK: get Product Categories
     func getProductCategories(categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
         guard let url = URL(string: String(format: "%@category",BASE_URL)) else {

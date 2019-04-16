@@ -12,6 +12,7 @@ class Global: NSObject {
 
     static let FONTNAME_LIGHT_ITALIC = "Averta-LightItalic"
     static let FONTNAME_SEMIBOLD = "Averta-Semibold"
+    static let FONTNAME_REGULAR = "Averta-Regular"
     
     static let STORY_BOARD_NAME = "Main"
     static let takaUniCode = "\u{09F3}"

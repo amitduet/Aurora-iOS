@@ -132,11 +132,27 @@ class ViewController: UIViewController {
         }
     
     @objc func categoryButtonPressed(_ sender: UIButton?) {
+        let homeTabBarController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: UITabBarController.self))as? UITabBarController
+    
+        let attrsNormal = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.init(name: Global.FONTNAME_SEMIBOLD, size: 12)
+        ]
+        let attrsSelected = [
+            NSAttributedString.Key.foregroundColor: UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6),
+            NSAttributedString.Key.font: UIFont.init(name: Global.FONTNAME_SEMIBOLD, size: 12)
+        ]
         
-        let homeViewController = UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: HomeViewController.self))as? HomeViewController
+        UITabBarItem.appearance().setTitleTextAttributes(attrsNormal as [NSAttributedString.Key : Any], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes(attrsSelected as [NSAttributedString.Key : Any], for: .normal)
+
+    
+        let homeViewController = homeTabBarController?.viewControllers?.first as? HomeViewController
         homeViewController?.splashImageName = (sender?.titleLabel?.text?.lowercased())!
         homeViewController?.mainCategoryId = sender!.tag
-        self.navigationController?.pushViewController(homeViewController!, animated: true)
+
+        
+        self.navigationController?.pushViewController(homeTabBarController!, animated: true)
     }
 
     
