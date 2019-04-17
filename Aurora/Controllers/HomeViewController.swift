@@ -24,18 +24,23 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(true)
-        self.splashImageView.image = UIImage.init(named: splashImageName)
+    }
 
-        DispatchQueue.main.asyncAfter(deadline:.now() + 1) {
+    func splashViewShow() {
+        self.navigationController?.isNavigationBarHidden = true
+        self.splashImageView.image = UIImage.init(named: splashImageName)
+        self.splashView.alpha = 1.0
+        self.splashView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
             self.splashView.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        splashViewShow()
         fetchHomeCategoryRequest()
     }
     
@@ -58,7 +63,6 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func calculateNumberOfSection() -> NSInteger {
         
         var numberOfSection :NSInteger = 0;
-        
         if (homeDataDto.sliders.count > 0){
                 numberOfSection += 1
         }

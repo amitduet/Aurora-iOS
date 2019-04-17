@@ -43,6 +43,10 @@
 		8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */; };
 		8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */; };
 		8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */; };
+		8FFD928C22676C280064A487 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD928A22676C280064A487 /* CategoryTableViewCell.swift */; };
+		8FFD928D22676C280064A487 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */; };
+		8FFD92902267787A0064A487 /* ListProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */; };
+		8FFD92912267787A0064A487 /* ListProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD928F2267787A0064A487 /* ListProductCollectionViewCell.xib */; };
 		E4766DB662C29648D988B0EB /* Pods_Aurora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB334F459A3E0875724573D /* Pods_Aurora.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,10 @@
 		8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferSLiderCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFD928A22676C280064A487 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		8FFD928F2267787A0064A487 /* ListProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		94D5C4B6898F53B346745865 /* Pods-Aurora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.debug.xcconfig"; sourceTree = "<group>"; };
 		AFB334F459A3E0875724573D /* Pods_Aurora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aurora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A64FFAC14DD36B395B4BE4 /* Pods-Aurora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 		8F0D9D0B22527E6700988960 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FFD928922676BFF0064A487 /* CategoryCell */,
 				8FF539612260E19300DF7568 /* ProductCell */,
 			);
 			path = Views;
@@ -218,6 +227,17 @@
 				8FF504302264D5620042EAB3 /* TextCollectionViewCell.xib */,
 			);
 			path = ProductCell;
+			sourceTree = "<group>";
+		};
+		8FFD928922676BFF0064A487 /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				8FFD928A22676C280064A487 /* CategoryTableViewCell.swift */,
+				8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */,
+				8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */,
+				8FFD928F2267787A0064A487 /* ListProductCollectionViewCell.xib */,
+			);
+			path = CategoryCell;
 			sourceTree = "<group>";
 		};
 		EBAA0C925E237123DF2D4DA2 /* Pods */ = {
@@ -293,6 +313,7 @@
 				8F0EE547225504F800413123 /* Aurora EXTRA BOLD ITALIC.OTF in Resources */,
 				8F0EE552225504F800413123 /* Aurora.OTF in Resources */,
 				8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */,
+				8FFD928D22676C280064A487 /* CategoryTableViewCell.xib in Resources */,
 				8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */,
 				8F0EE548225504F800413123 /* Aurora EXTRA BOLD.OTF in Resources */,
 				8F0EE54E225504F800413123 /* Aurora SEMIBOLD ITALIC.OTF in Resources */,
@@ -305,6 +326,7 @@
 				8F0EE550225504F800413123 /* Aurora THIN ITALIC.OTF in Resources */,
 				8F0D9CFD22527BE700988960 /* Main.storyboard in Resources */,
 				8F0EE545225504F800413123 /* Aurora BOLD ITALIC.OTF in Resources */,
+				8FFD92912267787A0064A487 /* ListProductCollectionViewCell.xib in Resources */,
 				8F0EE54A225504F800413123 /* Aurora EXTRATHIN.OTF in Resources */,
 				8F0EE543225504F800413123 /* Aurora BLACK ITALIC.OTF in Resources */,
 				8F0EE54D225504F800413123 /* Aurora REGULAR ITALIC.OTF in Resources */,
@@ -379,6 +401,8 @@
 				8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */,
 				8F0D9CF822527BE700988960 /* AppDelegate.swift in Sources */,
 				8FF8D15422663C0C001A5EEC /* CategoryViewController.swift in Sources */,
+				8FFD928C22676C280064A487 /* CategoryTableViewCell.swift in Sources */,
+				8FFD92902267787A0064A487 /* ListProductCollectionViewCell.swift in Sources */,
 				8F0EE52F225501FE00413123 /* Global.swift in Sources */,
 				8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */,
 			);

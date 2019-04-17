@@ -8,8 +8,9 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
-
+class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet var categoryTableView:UITableView!
     var categoryDto:CategoryDto!
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class CategoryViewController: UIViewController {
             do {
                 self.categoryDto = try JSONDecoder().decode(CategoryDto.self, from: data)
                 debugPrint(self.categoryDto.category.count)
+                self.categoryTableView.reloadData()
             }catch let error as NSError{
                 debugPrint(error)
             }
@@ -26,19 +28,19 @@ class CategoryViewController: UIViewController {
         }) { error in
             
         }
-        
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (categoryDto != nil){
+            return categoryDto.category.count
+        }
+        return 0
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = CategoryTableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath, category: categoryDto.category[indexPath.row])
+        return cell
+    }
 
 }
