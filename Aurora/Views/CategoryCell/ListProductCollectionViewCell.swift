@@ -10,17 +10,6 @@ import UIKit
 
 class ListProductCollectionViewCell: UICollectionViewCell {
     
-    /*
-     Image
-     Current price -Averta-Semibold - 15, old price Averta-Semibold -  10 -> label
-     Favs button
-     Description -> label  Averta-Regular- 13
-     
-     
-     Star (image ) and rate label UIFont(name: "Roboto-Regular", size: 13)
-
-     */
-    
     @IBOutlet var productImageView:UIImageView!
     @IBOutlet var productCurrentPriceLabel:UILabel!
     @IBOutlet var productPreviousPriceLabel:UILabel!
@@ -33,5 +22,25 @@ class ListProductCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, product:ProductByCategory) -> ListProductCollectionViewCell {
+        let identifier = String(describing: self)
+        
+        collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ListProductCollectionViewCell
+        
+        let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,product.image))
+        cell.productImageView.sd_setShowActivityIndicatorView(true)
+        cell.productImageView.sd_setIndicatorStyle(.gray)
+        cell.productImageView.sd_setImage(with: imageUrl)
+        
+        cell.productDescriptionLabel.text = product.description
+        cell.productCurrentPriceLabel.text = String(format:"%@ %@",product.price,Global.takaUniCode)
+        //        cell.productPreviousPriceLabel.text = newlyArrived.pri
+        cell.backgroundColor = .lightGray
+        return cell
+    }
+
 
 }

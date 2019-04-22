@@ -12,11 +12,13 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet var categoryTableView:UITableView!
     var categoryDto:CategoryDto!
+    public var categoryId:NSInteger!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        APIManager.init().getProductCategories(categoryId: 59, success: { data in
+        self.navigationController?.title = "Categories"
+        APIManager.init().getProductCategories(categoryId: categoryId, success: { data in
             do {
                 self.categoryDto = try JSONDecoder().decode(CategoryDto.self, from: data)
                 debugPrint(self.categoryDto.category.count)
@@ -24,9 +26,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }catch let error as NSError{
                 debugPrint(error)
             }
-
         }) { error in
-            
         }
     }
     
@@ -41,6 +41,14 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         let cell = CategoryTableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath, category: categoryDto.category[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
+        productDetatilsVC?.productCategoryID = categoryDto.category[indexPath.row].categoryID
+        self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+
+
     }
 
 }

@@ -8,23 +8,48 @@
 
 import UIKit
 
-class CategoryWiseProductViewController: UIViewController {
+class CategoryWiseProductViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
+
+    @IBOutlet weak var productCollectionView:UICollectionView!
+    var productList:ProductDto!
+    public var productCategoryID:NSInteger!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getProductListByCategoryId()
     }
     
+    //MARK: API Request
+    
+    func getProductListByCategoryId()  {
+        
+        APIManager.init().getCategoryProducts(categoryId: self.productCategoryID, success: { data in
+            do {
+                self.productList = try JSONDecoder().decode(ProductDto.self, from: data)
+                self.productCollectionView.reloadData()
+            }catch let error as NSError{
+                debugPrint(error)
+            }
+        }) { error in
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    //MARK: UICollectionview Delegate
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (self.productList == nil){
+            return 0
+        }
+        return self.productList.productByCategory.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = ListProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, product: self.productList.productByCategory[indexPath.row]) as ListProductCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 200)
+    }
 
 }

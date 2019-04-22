@@ -100,7 +100,6 @@ class ViewController: UIViewController {
                     self.categoryButtonSet(tag: mainCategory.categoryID, title: mainCategory.name, categoryButton: button)
                     index = index+1
                 }
-            
             } catch let error as NSError{
                 debugPrint(error)
             }
@@ -108,11 +107,7 @@ class ViewController: UIViewController {
         }) { (Error) in
             
         }
-        
-        
-        
     }
-    
 
     func categoryButtonSet(tag:NSInteger,title:String, categoryButton:UIButton) -> Void {
         
@@ -150,8 +145,11 @@ class ViewController: UIViewController {
         let homeViewController = homeTabBarController?.viewControllers?.first as? HomeViewController
         homeViewController?.splashImageName = (sender?.titleLabel?.text?.lowercased())!
         homeViewController?.mainCategoryId = sender!.tag
-
         
+        let categoryNavController = homeTabBarController?.viewControllers?[1] as? UINavigationController
+        
+        let categoryViewController = categoryNavController?.viewControllers[0] as? CategoryViewController
+        categoryViewController?.categoryId = sender!.tag
         self.navigationController?.pushViewController(homeTabBarController!, animated: true)
     }
 

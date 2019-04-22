@@ -19,6 +19,9 @@ class APIManager: NSObject {
 
     func getJWTToken ()->String{
         
+        if (UserDefaults.standard.value(forKey: TOKEN_KEY) == nil){
+            return ""
+        }
         let token:String = UserDefaults.standard.value(forKey: TOKEN_KEY) as! String
         let jwtToken = String(format: "Bearer %@",token)
         

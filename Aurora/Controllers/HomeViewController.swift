@@ -25,6 +25,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = false
+
     }
 
     func splashViewShow() {
@@ -36,6 +38,11 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             self.splashView.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
