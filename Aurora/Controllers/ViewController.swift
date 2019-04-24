@@ -142,7 +142,11 @@ class ViewController: UIViewController {
         UITabBarItem.appearance().setTitleTextAttributes(attrsSelected as [NSAttributedString.Key : Any], for: .normal)
 
     
-        let homeViewController = homeTabBarController?.viewControllers?.first as? HomeViewController
+        let homeNavigationViewController = homeTabBarController?.viewControllers?.first as? UINavigationController
+        
+        //HomeUINavigationController
+        let homeViewController = homeNavigationViewController?.viewControllers[0] as? HomeViewController
+
         homeViewController?.splashImageName = (sender?.titleLabel?.text?.lowercased())!
         homeViewController?.mainCategoryId = sender!.tag
         

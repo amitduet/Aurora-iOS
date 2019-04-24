@@ -42,7 +42,6 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -102,12 +101,9 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case 1:
             let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, banner:self.homeDataDto.discountBanner[0])
             return cell
-
         case 2:
             let cell = TextCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath)
             return cell
-
-
         default:
             let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: homeDataDto.newlyArrived[indexPath.row-3])
             return cell
@@ -116,8 +112,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+       
         let width = view.frame.width
-
         switch indexPath.row {
         case 0:
             return CGSize(width: width, height: 200)
@@ -141,7 +137,6 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         if (section > 3){
             return 0.0
         }
-
         return 5
     }
 
@@ -149,9 +144,21 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         if (section > 3){
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
-
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if (indexPath.row > 2){
+            let newlyArrived = homeDataDto.newlyArrived[indexPath.row-3]
+            debugPrint("Go to Product Detatils %ld",newlyArrived.productID)
+            
+            let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: ProductDetailsViewController.self))as? ProductDetailsViewController
+            productDetatilsVC?.productId = newlyArrived.productID
+            self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+        }
+    }
+    
 
     
 }
