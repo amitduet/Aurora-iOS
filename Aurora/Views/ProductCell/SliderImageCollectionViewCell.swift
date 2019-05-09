@@ -17,14 +17,14 @@ class SliderImageCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath,banner:DiscountBanner) -> SliderImageCollectionViewCell {
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath,bannerImage:String) -> SliderImageCollectionViewCell {
         let identifier = String(describing: self)
 
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! SliderImageCollectionViewCell
         
-        let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,banner.image))
+        let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,bannerImage))
         cell.sliderImage.sd_setShowActivityIndicatorView(true)
         cell.sliderImage.sd_setIndicatorStyle(.gray)
         cell.sliderImage.sd_setImage(with: imageUrl)

@@ -99,7 +99,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let cell = OfferSLiderCollectionViewCell.cellForCollectionView(collectionView: self.productionCollectionView, indexPath: indexPath, sliders: homeDataDto.sliders)
             return cell
         case 1:
-            let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, banner:self.homeDataDto.discountBanner[0])
+            let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, bannerImage:self.homeDataDto.discountBanner[0].image)
             return cell
         case 2:
             let cell = TextCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath)

@@ -29,7 +29,7 @@ class OfferSLiderCollectionViewCell: UICollectionViewCell,UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, banner:self.sliders[indexPath.row])
+        let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, bannerImage:self.sliders[indexPath.row].image)
         return cell
     }
     

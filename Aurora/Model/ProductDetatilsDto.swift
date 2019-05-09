@@ -10,17 +10,266 @@
 // To parse the JSON, add this file to your project and do:
 //
 //   let productDetatilsDto = try? newJSONDecoder().decode(ProductDetatilsDto.self, from: jsonData)
-
+ 
 import Foundation
+
+//class ProductDetatilsDto: Codable {
+//    let productDetails: [ProductDetail]
+//    let aditionalImages: [AditionalImage]
+//    let options: [Option]
+//    let relatedProducts: [RelatedProduct]
+//    let rating: String
+//    let review: [Review]
+//
+//    init(productDetails: [ProductDetail], aditionalImages: [AditionalImage], options: [Option], relatedProducts: [RelatedProduct], rating: String, review: [Review]) {
+//        self.productDetails = productDetails
+//        self.aditionalImages = aditionalImages
+//        self.options = options
+//        self.relatedProducts = relatedProducts
+//        self.rating = rating
+//        self.review = review
+//    }
+//}
+//
+//class AditionalImage: Codable {
+//    let productImageID, productID: Int
+//    let image: String
+//    let sortOrder: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case productImageID = "product_image_id"
+//        case productID = "product_id"
+//        case image
+//        case sortOrder = "sort_order"
+//    }
+//
+//    init(productImageID: Int, productID: Int, image: String, sortOrder: Int) {
+//        self.productImageID = productImageID
+//        self.productID = productID
+//        self.image = image
+//        self.sortOrder = sortOrder
+//    }
+//}
+//
+//class Option: Codable {
+//    let optionDescriptionName: OptionDescriptionName
+//    let optionValueDescriptionName, optionValueImage: String
+//    let productOptionValueID, productOptionID, productID, optionID: Int
+//    let optionValueID, quantity, subtract: Int
+//    let price: String
+//    let pricePrefix: Prefix
+//    let points: Int
+//    let pointsPrefix: Prefix
+//    let weight: String
+//    let weightPrefix: Prefix
+//
+//    enum CodingKeys: String, CodingKey {
+//        case optionDescriptionName = "option_description_name"
+//        case optionValueDescriptionName = "option_value_description_name"
+//        case optionValueImage = "option_value_image"
+//        case productOptionValueID = "product_option_value_id"
+//        case productOptionID = "product_option_id"
+//        case productID = "product_id"
+//        case optionID = "option_id"
+//        case optionValueID = "option_value_id"
+//        case quantity, subtract, price
+//        case pricePrefix = "price_prefix"
+//        case points
+//        case pointsPrefix = "points_prefix"
+//        case weight
+//        case weightPrefix = "weight_prefix"
+//    }
+//
+//    init(optionDescriptionName: OptionDescriptionName, optionValueDescriptionName: String, optionValueImage: String, productOptionValueID: Int, productOptionID: Int, productID: Int, optionID: Int, optionValueID: Int, quantity: Int, subtract: Int, price: String, pricePrefix: Prefix, points: Int, pointsPrefix: Prefix, weight: String, weightPrefix: Prefix) {
+//        self.optionDescriptionName = optionDescriptionName
+//        self.optionValueDescriptionName = optionValueDescriptionName
+//        self.optionValueImage = optionValueImage
+//        self.productOptionValueID = productOptionValueID
+//        self.productOptionID = productOptionID
+//        self.productID = productID
+//        self.optionID = optionID
+//        self.optionValueID = optionValueID
+//        self.quantity = quantity
+//        self.subtract = subtract
+//        self.price = price
+//        self.pricePrefix = pricePrefix
+//        self.points = points
+//        self.pointsPrefix = pointsPrefix
+//        self.weight = weight
+//        self.weightPrefix = weightPrefix
+//    }
+//}
+//
+//enum OptionDescriptionName: String, Codable {
+//    case color = "Color"
+//    case size = "Size"
+//}
+//
+//enum Prefix: String, Codable {
+//    case empty = "+"
+//}
+//
+//class ProductDetail: Codable {
+//    let productID: Int
+//    let model, sku, upc, ean: String
+//    let jan, isbn, mpn, location: String
+//    let quantity, stockStatusID: Int
+//    let image: String
+//    let manufacturerID, shipping: Int
+//    let price: String
+//    let points, taxClassID: Int
+//    let dateAvailable, weight: String
+//    let weightClassID: Int
+//    let length, width, height: String
+//    let lengthClassID, subtract, minimum, sortOrder: Int
+//    let status, viewed: Int
+//    let dateAdded, dateModified: String
+//    let languageID: Int
+//    let name, description, tag, metaTitle: String
+//    let metaDescription, metaKeyword : String
+//    let discountPrice: Int
+//
+//
+//    enum CodingKeys: String, CodingKey {
+//        case productID = "product_id"
+//        case model, sku, upc, ean, jan, isbn, mpn, location, quantity
+//        case stockStatusID = "stock_status_id"
+//        case image
+//        case manufacturerID = "manufacturer_id"
+//        case shipping, price, points
+//        case taxClassID = "tax_class_id"
+//        case dateAvailable = "date_available"
+//        case weight
+//        case weightClassID = "weight_class_id"
+//        case length, width, height
+//        case lengthClassID = "length_class_id"
+//        case subtract, minimum
+//        case sortOrder = "sort_order"
+//        case status, viewed
+//        case dateAdded = "date_added"
+//        case dateModified = "date_modified"
+//        case languageID = "language_id"
+//        case name, description, tag
+//        case metaTitle = "meta_title"
+//        case metaDescription = "meta_description"
+//        case metaKeyword = "meta_keyword"
+//        case discountPrice
+//    }
+//
+//    init(productID: Int, model: String, sku: String, upc: String, ean: String, jan: String, isbn: String, mpn: String, location: String, quantity: Int, stockStatusID: Int, image: String, manufacturerID: Int, shipping: Int, price: String, points: Int, taxClassID: Int, dateAvailable: String, weight: String, weightClassID: Int, length: String, width: String, height: String, lengthClassID: Int, subtract: Int, minimum: Int, sortOrder: Int, status: Int, viewed: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, description: String, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, discountPrice: Int) {
+//        self.productID = productID
+//        self.model = model
+//        self.sku = sku
+//        self.upc = upc
+//        self.ean = ean
+//        self.jan = jan
+//        self.isbn = isbn
+//        self.mpn = mpn
+//        self.location = location
+//        self.quantity = quantity
+//        self.stockStatusID = stockStatusID
+//        self.image = image
+//        self.manufacturerID = manufacturerID
+//        self.shipping = shipping
+//        self.price = price
+//        self.points = points
+//        self.taxClassID = taxClassID
+//        self.dateAvailable = dateAvailable
+//        self.weight = weight
+//        self.weightClassID = weightClassID
+//        self.length = length
+//        self.width = width
+//        self.height = height
+//        self.lengthClassID = lengthClassID
+//        self.subtract = subtract
+//        self.minimum = minimum
+//        self.sortOrder = sortOrder
+//        self.status = status
+//        self.viewed = viewed
+//        self.dateAdded = dateAdded
+//        self.dateModified = dateModified
+//        self.languageID = languageID
+//        self.name = name
+//        self.description = description
+//        self.tag = tag
+//        self.metaTitle = metaTitle
+//        self.metaDescription = metaDescription
+//        self.metaKeyword = metaKeyword
+//        self.discountPrice = discountPrice
+//    }
+//}
+//
+//class RelatedProduct: Codable {
+//    let productID: Int
+//    let model, name, sku, price: String
+//    let discountPrice: Int
+//    let location: String
+//    let quantity: Int
+//    let image: String
+//    let status: Int
+//    let tag, metaTitle: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case productID = "product_id"
+//        case model, name, sku, price, discountPrice, location, quantity, image, status, tag
+//        case metaTitle = "meta_title"
+//    }
+//
+//    init(productID: Int, model: String, name: String, sku: String, price: String, discountPrice: Int, location: String, quantity: Int, image: String, status: Int, tag: String, metaTitle: String) {
+//        self.productID = productID
+//        self.model = model
+//        self.name = name
+//        self.sku = sku
+//        self.price = price
+//        self.discountPrice = discountPrice
+//        self.location = location
+//        self.quantity = quantity
+//        self.image = image
+//        self.status = status
+//        self.tag = tag
+//        self.metaTitle = metaTitle
+//    }
+//}
+//
+//class Review: Codable {
+//    let reviewID, productID, customerID: Int
+//    let author, text: String
+//    let rating, status: Int
+//    let dateAdded, dateModified: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case reviewID = "review_id"
+//        case productID = "product_id"
+//        case customerID = "customer_id"
+//        case author, text, rating, status
+//        case dateAdded = "date_added"
+//        case dateModified = "date_modified"
+//    }
+//
+//    init(reviewID: Int, productID: Int, customerID: Int, author: String, text: String, rating: Int, status: Int, dateAdded: String, dateModified: String) {
+//        self.reviewID = reviewID
+//        self.productID = productID
+//        self.customerID = customerID
+//        self.author = author
+//        self.text = text
+//        self.rating = rating
+//        self.status = status
+//        self.dateAdded = dateAdded
+//        self.dateModified = dateModified
+//    }
+//}
+
+
 
 class ProductDetatilsDto: Codable {
     let productDetails: [ProductDetail]
     let aditionalImages: [AditionalImage]
-    let options, relatedProducts: [JSONAny]
-    let rating: Int
-    let review: [JSONAny]
+    let options: [Option]
+    let relatedProducts: [RelatedProduct]
+    let rating: String
+    let review: [Review]
     
-    init(productDetails: [ProductDetail], aditionalImages: [AditionalImage], options: [JSONAny], relatedProducts: [JSONAny], rating: Int, review: [JSONAny]) {
+    init(productDetails: [ProductDetail], aditionalImages: [AditionalImage], options: [Option], relatedProducts: [RelatedProduct], rating: String, review: [Review]) {
         self.productDetails = productDetails
         self.aditionalImages = aditionalImages
         self.options = options
@@ -50,6 +299,64 @@ class AditionalImage: Codable {
     }
 }
 
+class Option: Codable {
+    let optionDescriptionName: OptionDescriptionName
+    let optionValueDescriptionName, optionValueImage: String
+    let productOptionValueID, productOptionID, productID, optionID: Int
+    let optionValueID, quantity, subtract: Int
+    let price: String
+    let pricePrefix: Prefix
+    let points: Int
+    let pointsPrefix: Prefix
+    let weight: String
+    let weightPrefix: Prefix
+    
+    enum CodingKeys: String, CodingKey {
+        case optionDescriptionName = "option_description_name"
+        case optionValueDescriptionName = "option_value_description_name"
+        case optionValueImage = "option_value_image"
+        case productOptionValueID = "product_option_value_id"
+        case productOptionID = "product_option_id"
+        case productID = "product_id"
+        case optionID = "option_id"
+        case optionValueID = "option_value_id"
+        case quantity, subtract, price
+        case pricePrefix = "price_prefix"
+        case points
+        case pointsPrefix = "points_prefix"
+        case weight
+        case weightPrefix = "weight_prefix"
+    }
+    
+    init(optionDescriptionName: OptionDescriptionName, optionValueDescriptionName: String, optionValueImage: String, productOptionValueID: Int, productOptionID: Int, productID: Int, optionID: Int, optionValueID: Int, quantity: Int, subtract: Int, price: String, pricePrefix: Prefix, points: Int, pointsPrefix: Prefix, weight: String, weightPrefix: Prefix) {
+        self.optionDescriptionName = optionDescriptionName
+        self.optionValueDescriptionName = optionValueDescriptionName
+        self.optionValueImage = optionValueImage
+        self.productOptionValueID = productOptionValueID
+        self.productOptionID = productOptionID
+        self.productID = productID
+        self.optionID = optionID
+        self.optionValueID = optionValueID
+        self.quantity = quantity
+        self.subtract = subtract
+        self.price = price
+        self.pricePrefix = pricePrefix
+        self.points = points
+        self.pointsPrefix = pointsPrefix
+        self.weight = weight
+        self.weightPrefix = weightPrefix
+    }
+}
+
+enum OptionDescriptionName: String, Codable {
+    case color = "Color"
+    case size = "Size"
+}
+
+enum Prefix: String, Codable {
+    case empty = "+"
+}
+
 class ProductDetail: Codable {
     let productID: Int
     let model, sku, upc, ean: String
@@ -67,8 +374,7 @@ class ProductDetail: Codable {
     let dateAdded, dateModified: String
     let languageID: Int
     let name, description, tag, metaTitle: String
-    let metaDescription, metaKeyword: String
-    let discountPrice: JSONNull?
+    let metaDescription, metaKeyword, discountPrice: String
     
     enum CodingKeys: String, CodingKey {
         case productID = "product_id"
@@ -96,7 +402,7 @@ class ProductDetail: Codable {
         case discountPrice
     }
     
-    init(productID: Int, model: String, sku: String, upc: String, ean: String, jan: String, isbn: String, mpn: String, location: String, quantity: Int, stockStatusID: Int, image: String, manufacturerID: Int, shipping: Int, price: String, points: Int, taxClassID: Int, dateAvailable: String, weight: String, weightClassID: Int, length: String, width: String, height: String, lengthClassID: Int, subtract: Int, minimum: Int, sortOrder: Int, status: Int, viewed: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, description: String, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, discountPrice: JSONNull?) {
+    init(productID: Int, model: String, sku: String, upc: String, ean: String, jan: String, isbn: String, mpn: String, location: String, quantity: Int, stockStatusID: Int, image: String, manufacturerID: Int, shipping: Int, price: String, points: Int, taxClassID: Int, dateAvailable: String, weight: String, weightClassID: Int, length: String, width: String, height: String, lengthClassID: Int, subtract: Int, minimum: Int, sortOrder: Int, status: Int, viewed: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, description: String, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, discountPrice: String) {
         self.productID = productID
         self.model = model
         self.sku = sku
@@ -139,245 +445,63 @@ class ProductDetail: Codable {
     }
 }
 
-// MARK: Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
+class RelatedProduct: Codable {
+    let productID: Int
+    let model, name, sku, price: String
+    let discountPrice: String?
+    let location: String
+    let quantity: Int
+    let image: String
+    let status: Int
+    let tag, metaTitle: String
     
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
+    enum CodingKeys: String, CodingKey {
+        case productID = "product_id"
+        case model, name, sku, price, discountPrice, location, quantity, image, status, tag
+        case metaTitle = "meta_title"
     }
     
-    public var hashValue: Int {
-        return 0
-    }
-    
-    public init() {}
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}
-
-class JSONCodingKey: CodingKey {
-    let key: String
-    
-    required init?(intValue: Int) {
-        return nil
-    }
-    
-    required init?(stringValue: String) {
-        key = stringValue
-    }
-    
-    var intValue: Int? {
-        return nil
-    }
-    
-    var stringValue: String {
-        return key
+    init(productID: Int, model: String, name: String, sku: String, price: String, discountPrice: String?, location: String, quantity: Int, image: String, status: Int, tag: String, metaTitle: String) {
+        self.productID = productID
+        self.model = model
+        self.name = name
+        self.sku = sku
+        self.price = price
+        self.discountPrice = discountPrice
+        self.location = location
+        self.quantity = quantity
+        self.image = image
+        self.status = status
+        self.tag = tag
+        self.metaTitle = metaTitle
     }
 }
 
-class JSONAny: Codable {
-    let value: Any
+class Review: Codable {
+    let reviewID, productID, customerID: Int
+    let author, text: String
+    let rating, status: Int
+    let dateAdded, dateModified: String
     
-    static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
-        let context = DecodingError.Context(codingPath: codingPath, debugDescription: "Cannot decode JSONAny")
-        return DecodingError.typeMismatch(JSONAny.self, context)
+    enum CodingKeys: String, CodingKey {
+        case reviewID = "review_id"
+        case productID = "product_id"
+        case customerID = "customer_id"
+        case author, text, rating, status
+        case dateAdded = "date_added"
+        case dateModified = "date_modified"
     }
     
-    static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
-        let context = EncodingError.Context(codingPath: codingPath, debugDescription: "Cannot encode JSONAny")
-        return EncodingError.invalidValue(value, context)
-    }
-    
-    static func decode(from container: SingleValueDecodingContainer) throws -> Any {
-        if let value = try? container.decode(Bool.self) {
-            return value
-        }
-        if let value = try? container.decode(Int64.self) {
-            return value
-        }
-        if let value = try? container.decode(Double.self) {
-            return value
-        }
-        if let value = try? container.decode(String.self) {
-            return value
-        }
-        if container.decodeNil() {
-            return JSONNull()
-        }
-        throw decodingError(forCodingPath: container.codingPath)
-    }
-    
-    static func decode(from container: inout UnkeyedDecodingContainer) throws -> Any {
-        if let value = try? container.decode(Bool.self) {
-            return value
-        }
-        if let value = try? container.decode(Int64.self) {
-            return value
-        }
-        if let value = try? container.decode(Double.self) {
-            return value
-        }
-        if let value = try? container.decode(String.self) {
-            return value
-        }
-        if let value = try? container.decodeNil() {
-            if value {
-                return JSONNull()
-            }
-        }
-        if var container = try? container.nestedUnkeyedContainer() {
-            return try decodeArray(from: &container)
-        }
-        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self) {
-            return try decodeDictionary(from: &container)
-        }
-        throw decodingError(forCodingPath: container.codingPath)
-    }
-    
-    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
-        if let value = try? container.decode(Bool.self, forKey: key) {
-            return value
-        }
-        if let value = try? container.decode(Int64.self, forKey: key) {
-            return value
-        }
-        if let value = try? container.decode(Double.self, forKey: key) {
-            return value
-        }
-        if let value = try? container.decode(String.self, forKey: key) {
-            return value
-        }
-        if let value = try? container.decodeNil(forKey: key) {
-            if value {
-                return JSONNull()
-            }
-        }
-        if var container = try? container.nestedUnkeyedContainer(forKey: key) {
-            return try decodeArray(from: &container)
-        }
-        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key) {
-            return try decodeDictionary(from: &container)
-        }
-        throw decodingError(forCodingPath: container.codingPath)
-    }
-    
-    static func decodeArray(from container: inout UnkeyedDecodingContainer) throws -> [Any] {
-        var arr: [Any] = []
-        while !container.isAtEnd {
-            let value = try decode(from: &container)
-            arr.append(value)
-        }
-        return arr
-    }
-    
-    static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey>) throws -> [String: Any] {
-        var dict = [String: Any]()
-        for key in container.allKeys {
-            let value = try decode(from: &container, forKey: key)
-            dict[key.stringValue] = value
-        }
-        return dict
-    }
-    
-    static func encode(to container: inout UnkeyedEncodingContainer, array: [Any]) throws {
-        for value in array {
-            if let value = value as? Bool {
-                try container.encode(value)
-            } else if let value = value as? Int64 {
-                try container.encode(value)
-            } else if let value = value as? Double {
-                try container.encode(value)
-            } else if let value = value as? String {
-                try container.encode(value)
-            } else if value is JSONNull {
-                try container.encodeNil()
-            } else if let value = value as? [Any] {
-                var container = container.nestedUnkeyedContainer()
-                try encode(to: &container, array: value)
-            } else if let value = value as? [String: Any] {
-                var container = container.nestedContainer(keyedBy: JSONCodingKey.self)
-                try encode(to: &container, dictionary: value)
-            } else {
-                throw encodingError(forValue: value, codingPath: container.codingPath)
-            }
-        }
-    }
-    
-    static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey>, dictionary: [String: Any]) throws {
-        for (key, value) in dictionary {
-            let key = JSONCodingKey(stringValue: key)!
-            if let value = value as? Bool {
-                try container.encode(value, forKey: key)
-            } else if let value = value as? Int64 {
-                try container.encode(value, forKey: key)
-            } else if let value = value as? Double {
-                try container.encode(value, forKey: key)
-            } else if let value = value as? String {
-                try container.encode(value, forKey: key)
-            } else if value is JSONNull {
-                try container.encodeNil(forKey: key)
-            } else if let value = value as? [Any] {
-                var container = container.nestedUnkeyedContainer(forKey: key)
-                try encode(to: &container, array: value)
-            } else if let value = value as? [String: Any] {
-                var container = container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key)
-                try encode(to: &container, dictionary: value)
-            } else {
-                throw encodingError(forValue: value, codingPath: container.codingPath)
-            }
-        }
-    }
-    
-    static func encode(to container: inout SingleValueEncodingContainer, value: Any) throws {
-        if let value = value as? Bool {
-            try container.encode(value)
-        } else if let value = value as? Int64 {
-            try container.encode(value)
-        } else if let value = value as? Double {
-            try container.encode(value)
-        } else if let value = value as? String {
-            try container.encode(value)
-        } else if value is JSONNull {
-            try container.encodeNil()
-        } else {
-            throw encodingError(forValue: value, codingPath: container.codingPath)
-        }
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        if var arrayContainer = try? decoder.unkeyedContainer() {
-            self.value = try JSONAny.decodeArray(from: &arrayContainer)
-        } else if var container = try? decoder.container(keyedBy: JSONCodingKey.self) {
-            self.value = try JSONAny.decodeDictionary(from: &container)
-        } else {
-            let container = try decoder.singleValueContainer()
-            self.value = try JSONAny.decode(from: container)
-        }
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        if let arr = self.value as? [Any] {
-            var container = encoder.unkeyedContainer()
-            try JSONAny.encode(to: &container, array: arr)
-        } else if let dict = self.value as? [String: Any] {
-            var container = encoder.container(keyedBy: JSONCodingKey.self)
-            try JSONAny.encode(to: &container, dictionary: dict)
-        } else {
-            var container = encoder.singleValueContainer()
-            try JSONAny.encode(to: &container, value: self.value)
-        }
+    init(reviewID: Int, productID: Int, customerID: Int, author: String, text: String, rating: Int, status: Int, dateAdded: String, dateModified: String) {
+        self.reviewID = reviewID
+        self.productID = productID
+        self.customerID = customerID
+        self.author = author
+        self.text = text
+        self.rating = rating
+        self.status = status
+        self.dateAdded = dateAdded
+        self.dateModified = dateModified
     }
 }
-
 
