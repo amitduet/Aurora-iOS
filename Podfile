@@ -11,5 +11,7 @@ target 'Aurora' do
   pod 'SDWebImage', '~> 4.0'
   pod 'Alamofire'
   pod 'CHIPageControl/Jaloro'
-  
+  pod 'Firebase/Auth'
+  pod 'Cosmos', '~> 19.0'
+
 end

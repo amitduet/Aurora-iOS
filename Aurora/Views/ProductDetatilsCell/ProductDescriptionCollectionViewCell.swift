@@ -86,7 +86,6 @@ class ProductDescriptionCollectionViewCell: UICollectionViewCell,UICollectionVie
 
             if (productDetatils.productDetails[0].discountPrice is String){
                 let price:String = (productDetatils.productDetails[0].discountPrice as? String)!
-                
                 let previousPriceString:String = String(format:"%@ %@",productDetatils.productDetails[0].price,Global.takaUniCode)
                 let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: price)
                 attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
@@ -94,7 +93,7 @@ class ProductDescriptionCollectionViewCell: UICollectionViewCell,UICollectionVie
                 cell.previousPriceLabel.attributedText = attributeString
             }
 //        }
-        cell.ratingNReviewLabel.text = String(format: "%0.2f/%d", (productDetatils.rating as NSString).doubleValue, productDetatils.review.count)
+        cell.ratingNReviewLabel.text = String(format: "%0.2f/%d Reviews", (productDetatils.rating as NSString).doubleValue, productDetatils.review.count)
         
         return cell
     }

@@ -68,7 +68,14 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
             if (self.productDetatilsDto.review.count > 0){
                 numberOfRow += 1
             }
-        
+            
+            if (self.productDetatilsDto.relatedProducts.count > 0){
+                numberOfRow += 1
+            }
+            
+            if (self.productDetatilsDto.options.count > 0){
+                numberOfRow += 1
+            }
             return numberOfRow
         }
         
@@ -81,11 +88,17 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
         case 0:
             let cell = ProductDescriptionCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, productDetatils: self.productDetatilsDto)
             return cell;
-
-        default:
+        case 1:
+            let cell = RelatedCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, relatedProducts: self.productDetatilsDto.relatedProducts)
+            return cell
+        
+        case 2:
             let cell = ProductReviewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, reviewList:self.productDetatilsDto.review, rating: self.productDetatilsDto.rating)
             return cell;
-
+        default:
+            let cell = ProductInformationCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, options: self.productDetatilsDto.options)
+            cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width, height: CGFloat(cell.cellHeight))
+            return cell
         }
     }
     
@@ -96,11 +109,13 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
         case 0:
             return CGSize(width: width, height: 300)
         case 1:
-            return CGSize(width: width, height: 150)
+            return CGSize(width: width, height: 330)
         case 2:
-            return CGSize(width: width, height: 40)
+            return CGSize(width: width, height: 150)
+
+           // return CGSize(width: width, height: 40)
         default:
-            return CGSize(width: (width - 15)/2, height: (width - 15)/2)
+            return CGSize(width: width, height: 400)
         }
     }
     

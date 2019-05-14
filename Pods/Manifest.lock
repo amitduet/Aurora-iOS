@@ -1,6 +1,25 @@
 PODS:
   - Alamofire (4.8.2)
   - CHIPageControl/Jaloro (0.1.7)
+  - Cosmos (19.0.3)
+  - Firebase/Auth (5.20.1):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.4.2)
+  - Firebase/CoreOnly (5.20.1):
+    - FirebaseCore (= 5.4.1)
+  - FirebaseAuth (5.4.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/Logger (~> 5.2)
+  - GoogleUtilities/Environment (5.5.0)
+  - GoogleUtilities/Logger (5.5.0):
+    - GoogleUtilities/Environment
+  - GTMSessionFetcher/Core (1.2.1)
   - MBProgressHUD (1.1.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
@@ -9,6 +28,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CHIPageControl/Jaloro
+  - Cosmos (~> 19.0)
+  - Firebase/Auth
   - MBProgressHUD (~> 1.1.0)
   - SDWebImage (~> 4.0)
 
@@ -16,15 +37,29 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CHIPageControl
+    - Cosmos
+    - Firebase
+    - FirebaseAuth
+    - FirebaseAuthInterop
+    - FirebaseCore
+    - GoogleUtilities
+    - GTMSessionFetcher
     - MBProgressHUD
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   CHIPageControl: bbe1ddd0c688c02ec65b7f7e7d34551a3d16f37c
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
+  Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
+  FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: add75561546addef31234515e97f7587079d7c80
+PODFILE CHECKSUM: 4004926c8fa7c375ba7282c13dcfb90cc6a78735
 
 COCOAPODS: 1.5.3
