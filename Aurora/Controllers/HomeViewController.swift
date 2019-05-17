@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var splashView: UIView!
-    @IBOutlet weak var splashImageView:UIImageView!
+    var splashImageView:UIImageView!
     @IBOutlet weak var productionCollectionView:UICollectionView!
     
     public var splashImageName:String!
@@ -31,11 +31,16 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
 
     func splashViewShow() {
         self.navigationController?.isNavigationBarHidden = true
+        
+        let window = UIApplication.shared.windows.first;
+        self.splashImageView = UIImageView.init(frame: window!.frame)
+        
         self.splashImageView.image = UIImage.init(named: splashImageName)
-        self.splashView.alpha = 1.0
-        self.splashView.isHidden = false
+        
+        window?.addSubview(self.splashImageView)
         DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
-            self.splashView.isHidden = true
+            self.splashView.alpha = 0.0
+            self.splashImageView.alpha = 0.0
             self.navigationController?.isNavigationBarHidden = false
         }
     }
@@ -46,8 +51,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        splashViewShow()
         fetchHomeCategoryRequest()
+        splashViewShow()
     }
     
     //MARK: API Request
@@ -77,9 +82,14 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             numberOfSection += 1
         }
 
-        if (homeDataDto.newlyArrived.count > 0){
-            numberOfSection += homeDataDto.newlyArrived.count + 1
+//        if (homeDataDto.discountProducts.count > 0){
+//            numberOfSection += homeDataDto.discountProducts.count  + 1
+//        }
+
+        if (homeDataDto.latestProducts.count > 0){
+            numberOfSection += homeDataDto.latestProducts.count  + 1
         }
+        
 
         return numberOfSection
     }
@@ -102,12 +112,12 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, bannerImage:self.homeDataDto.discountBanner[0].image)
             return cell
         case 2:
-            let cell = TextCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath)
+            let cell = OnSaleProductsCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath,  withDiscountProductList:self.homeDataDto.discountProducts)
             return cell
+        
         default:
-            let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: homeDataDto.newlyArrived[indexPath.row-3])
+            let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: self.homeDataDto!.latestProducts[indexPath.row-3])
             return cell
-
         }
     }
 
@@ -120,7 +130,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case 1:
             return CGSize(width: width, height: 100)
         case 2:
-            return CGSize(width: width, height: 40)
+            return CGSize(width: width, height: 300)
         default:
             return CGSize(width: (width - 15)/2, height: (width - 15)/2)
         }

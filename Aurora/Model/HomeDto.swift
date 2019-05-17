@@ -8,7 +8,7 @@ class HomeDto: Codable {
     let categoryID: String
     let sliders: [DiscountBanner]
     let discountProducts: [DiscountProduct]
-    let newlyArrived: [NewlyArrived]
+    let newlyArrived, latestProducts: [LatestProduct]
     let discountBanner: [DiscountBanner]
     
     enum CodingKeys: String, CodingKey {
@@ -16,14 +16,16 @@ class HomeDto: Codable {
         case sliders
         case discountProducts = "discount_products"
         case newlyArrived = "newly_arrived"
+        case latestProducts = "latest_products"
         case discountBanner
     }
     
-    init(categoryID: String, sliders: [DiscountBanner], discountProducts: [DiscountProduct], newlyArrived: [NewlyArrived], discountBanner: [DiscountBanner]) {
+    init(categoryID: String, sliders: [DiscountBanner], discountProducts: [DiscountProduct], newlyArrived: [LatestProduct], latestProducts: [LatestProduct], discountBanner: [DiscountBanner]) {
         self.categoryID = categoryID
         self.sliders = sliders
         self.discountProducts = discountProducts
         self.newlyArrived = newlyArrived
+        self.latestProducts = latestProducts
         self.discountBanner = discountBanner
     }
 }
@@ -54,8 +56,7 @@ class DiscountBanner: Codable {
 
 class DiscountProduct: Codable {
     let productSpecialID, productID: Int
-    let name, model, image, price: String
-    let oldPrice: String
+    let name, model, image, price, oldPrice: String
     let priority, customerGroupID: Int
     let dateStart, dateEnd: String
     let categoryID: Int
@@ -86,24 +87,34 @@ class DiscountProduct: Codable {
     }
 }
 
-class NewlyArrived: Codable {
+//enum Name: String, Codable {
+//    case blueShirt = "Blue Shirt"
+//    case denimShirt = "Denim Shirt"
+//    case empty = ""
+//    case jeansMenPant = "jeans, men, pant,"
+//}
+
+class LatestProduct: Codable {
     let categoryID, productID: Int
     let name, model, sku, price: String
+    let discountPrice: String?
     let quantity: Int
     let image: String
     let manufacturerID: Int
-    let manufacturerName: String
+    let manufacturerName: ManufacturerName?
     let shipping, points: Int
     let dateAvailable, weight, length, width: String
     let height, description: String
     let stockStatus: StockStatus
-    let tag, metaTitle, metaDescription, metaKeyword: String
+    let tag,metaTitle: String
+    let metaDescription: MetaDescription
+    let metaKeyword: MetaKeyword
     let dateAdded, dateModified: String
     
     enum CodingKeys: String, CodingKey {
         case categoryID = "category_id"
         case productID = "product_id"
-        case name, model, sku, price, quantity, image
+        case name, model, sku, price, discountPrice, quantity, image
         case manufacturerID = "manufacturer_id"
         case manufacturerName, shipping, points
         case dateAvailable = "date_available"
@@ -115,13 +126,14 @@ class NewlyArrived: Codable {
         case dateModified = "date_modified"
     }
     
-    init(categoryID: Int, productID: Int, name: String, model: String, sku: String, price: String, quantity: Int, image: String, manufacturerID: Int, manufacturerName: String, shipping: Int, points: Int, dateAvailable: String, weight: String, length: String, width: String, height: String, description: String, stockStatus: StockStatus, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, dateAdded: String, dateModified: String) {
+    init(categoryID: Int, productID: Int, name: String, model: String, sku: String, price: String, discountPrice: String?, quantity: Int, image: String, manufacturerID: Int, manufacturerName: ManufacturerName?, shipping: Int, points: Int, dateAvailable: String, weight: String, length: String, width: String, height: String, description: String, stockStatus: StockStatus, tag: String, metaTitle: String, metaDescription: MetaDescription, metaKeyword: MetaKeyword, dateAdded: String, dateModified: String) {
         self.categoryID = categoryID
         self.productID = productID
         self.name = name
         self.model = model
         self.sku = sku
         self.price = price
+        self.discountPrice = discountPrice
         self.quantity = quantity
         self.image = image
         self.manufacturerID = manufacturerID
@@ -144,9 +156,25 @@ class NewlyArrived: Codable {
     }
 }
 
+enum ManufacturerName: String, Codable {
+    case adidas = "Adidas "
+    case denim = "Denim"
+}
+
+enum MetaDescription: String, Codable {
+    case empty = ""
+    case jeansPantForMen = "Jeans Pant for men"
+    case shirtDescription = "Shirt description"
+}
+
+enum MetaKeyword: String, Codable {
+    case empty = ""
+    case jeansPant = "Jeans Pant "
+    case shirt = "Shirt"
+}
+
 enum StockStatus: String, Codable {
     case inStock = "In Stock"
     case outOfStock = "Out Of Stock"
     case the23Days = "2-3 Days"
 }
-
