@@ -19,24 +19,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-
-//        self.layer.borderColor = UIColor.lightGray.cgColor
-//        self.layer.borderWidth = 1
-//        
-//        self.contentView.layer.cornerRadius = 10
-//        self.contentView.layer.borderWidth = 1.0
-//        
-//        self.contentView.layer.borderColor = UIColor.clear.cgColor
-//        self.contentView.layer.masksToBounds = true
-//        
-//        self.layer.shadowColor = UIColor.gray.cgColor
-//        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        self.layer.shadowRadius = 2.0
-//        self.layer.shadowOpacity = 1.0
-//        self.layer.masksToBounds = false
-//        self.layer.shadowPath = UIBezierPath(roundedRect:self.bounds, cornerRadius:self.contentView.layer.cornerRadius).cgPath
-        
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.init(hex: "F6F6F6")?.cgColor
     }
     
     func cellupdateUI(price:String, previousPrice:String, productName:String, productImageUrl:String) {
@@ -45,9 +29,17 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.productImageView.sd_setIndicatorStyle(.gray)
         self.productImageView.sd_setImage(with: imageUrl)
         
+        let layer0 = CALayer()
+        layer0.contents = self.productImageView.image
+        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 1, b: 0, c: 0, d: 1.02, tx: 0, ty: -0.01))
+        layer0.bounds = self.productImageView.bounds
+        layer0.position = self.productImageView.center
+        self.productImageView.layer.addSublayer(layer0)
+
+        
         self.productDescriptionLabel.text = productName
-        self.productPriceLabel.text = String(format:"%0.2f %@",price.floatValue,Global.takaUniCode)
-        self.productPreviousPriceLabel.text = String(format:"%0.2f ",previousPrice.floatValue)
+        self.productPriceLabel.text = String(format:"%0.0f%@",price.floatValue,Global.takaUniCode)
+        self.productPreviousPriceLabel.text = String(format:"%0.0f%@",previousPrice.floatValue,Global.takaUniCode)
     }
 
     @IBAction func favoriteButtonPressed(_ sender: Any) {

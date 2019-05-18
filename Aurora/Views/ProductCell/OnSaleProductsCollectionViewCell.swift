@@ -24,7 +24,7 @@ class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDel
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! OnSaleProductsCollectionViewCell
-        cell.backgroundColor = UIColor.green
+        cell.backgroundColor = UIColor.clear
         cell.discountProducts = withDiscountProductList
         cell.discountProductCollectionView.reloadData()
         return cell
@@ -44,7 +44,8 @@ class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width
-            return CGSize(width: (width - 15)/2, height: (width - 15)/2)
+            let height =  (width - 15)/2 * 1.34
+            return CGSize(width: (width - 15)/2, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

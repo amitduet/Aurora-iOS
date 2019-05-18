@@ -14,6 +14,7 @@ class OfferSLiderCollectionViewCell: UICollectionViewCell,UICollectionViewDelega
     
     @IBOutlet weak var sliderView:CHIPageControlJaloro!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
+    let sliderImageCellHieght:Float = 200.0
     
     public var  sliders: [DiscountBanner] = []
 
@@ -39,26 +40,12 @@ class OfferSLiderCollectionViewCell: UICollectionViewCell,UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-        return CGSize(width: width, height: 200)
+        return CGSize(width: width, height: CGFloat(sliderImageCellHieght))
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-//    }
 
     //MARk:Page Changes
-    
     @IBAction func pageChangesControllerAction(_ sender: CHIPageControlJaloro) {
-        
-//        self.sliderCollectionView.scrollToItem(at: IndexPath.init(row: Int(sender.acti), section: 0), at:.centeredHorizontally, animated: true)
     }
     
     class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, sliders:[DiscountBanner]) -> OfferSLiderCollectionViewCell {
@@ -70,7 +57,7 @@ class OfferSLiderCollectionViewCell: UICollectionViewCell,UICollectionViewDelega
         cell.sliderView.numberOfPages = cell.sliders.count
         cell.sliderCollectionView.reloadData()
 
-        cell.backgroundColor = .red
+        cell.backgroundColor = .clear
         return cell
     }
 

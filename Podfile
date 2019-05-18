@@ -12,6 +12,8 @@ target 'Aurora' do
   pod 'Alamofire'
   pod 'CHIPageControl/Jaloro'
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   pod 'Cosmos', '~> 19.0'
 
 end

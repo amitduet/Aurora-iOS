@@ -130,9 +130,10 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case 1:
             return CGSize(width: width, height: 100)
         case 2:
-            return CGSize(width: width, height: 300)
-        default:
-            return CGSize(width: (width - 15)/2, height: (width - 15)/2)
+            return CGSize(width: width, height: 350)
+        default:            
+            let height =  (width - 15)/2 * 1.34
+            return CGSize(width: (width - 15)/2, height:height)
         }
     }
     
