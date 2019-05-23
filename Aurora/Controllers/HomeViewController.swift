@@ -8,7 +8,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DiscountProductDelegate {
+    
 
     @IBOutlet weak var splashView: UIView!
     var splashImageView:UIImageView!
@@ -26,7 +27,6 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = false
-
     }
 
     func splashViewShow() {
@@ -112,7 +112,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let cell = SliderImageCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, bannerImage:self.homeDataDto.discountBanner[0].image)
             return cell
         case 2:
-            let cell = OnSaleProductsCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath,  withDiscountProductList:self.homeDataDto.discountProducts)
+            let cell = OnSaleProductsCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath,  withDiscountProductList:self.homeDataDto.discountProducts, delegate: self)
             return cell
         
         default:
@@ -159,17 +159,17 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if (indexPath.row > 2){
-            let newlyArrived = homeDataDto.newlyArrived[indexPath.row-3]
-            debugPrint("Go to Product Detatils %ld",newlyArrived.productID)
-            
-            let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: ProductDetailsViewController.self))as? ProductDetailsViewController
-            productDetatilsVC?.productId = newlyArrived.productID
-            self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+            let latestProduct = homeDataDto.latestProducts[indexPath.row-3]
+            navigateToProductDetails(productId: latestProduct.productID);
         }
     }
     
+    func navigateToProductDetails(productId: Int) {
+        let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: ProductDetailsViewController.self))as? ProductDetailsViewController
+        productDetatilsVC?.productId = productId
+        self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
 
-    
+    }
+
 }

@@ -26,7 +26,6 @@ class RelatedCollectionViewCell: UICollectionViewCell {
         cell.relatedProduct = relatedProducts
         cell.relatedProductCollectionView.dataSource = cell
         cell.relatedProductCollectionView.delegate = cell
-
         cell.relatedProductCollectionView .reloadData();
         return cell
     }
@@ -41,7 +40,7 @@ extension RelatedCollectionViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = MoreProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, relatedProducts:self.relatedProduct)
+        let cell = ProductCollectionViewCell.RelatedCellForCollectionView(collectionView: collectionView, indexPath: indexPath, relatedProduct: relatedProduct[indexPath.row])
         return cell;
     }
 }
@@ -58,14 +57,10 @@ extension RelatedCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 300)
+        let width = UIScreen.main.bounds.width
+        let height =  (width - 15)/2 * 1.34
+        return CGSize(width: (width - 15)/2, height: height)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) //.zero
-//    }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

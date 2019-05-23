@@ -43,6 +43,7 @@
 		8FF51E822289BF3B00B28129 /* SizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF51E802289BF3B00B28129 /* SizeCollectionViewCell.xib */; };
 		8FF51E852289BF4C00B28129 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF51E832289BF4C00B28129 /* ColorCollectionViewCell.swift */; };
 		8FF51E862289BF4C00B28129 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF51E842289BF4C00B28129 /* ColorCollectionViewCell.xib */; };
+		8FF53871228FD3FE00CA9D02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */; };
 		8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */; };
 		8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */; };
 		8FF87FFB2281BA7800B2E394 /* ProductReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF87FF92281BA7800B2E394 /* ProductReviewCell.swift */; };
@@ -55,6 +56,7 @@
 		8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */; };
 		8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */; };
 		8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */; };
+		8FFA91BE22906D5600BC0C71 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA91BD22906D5600BC0C71 /* SignInViewController.swift */; };
 		8FFAF8FA228B147100A3B690 /* RatingNReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF8F9228B147100A3B690 /* RatingNReviewViewController.swift */; };
 		8FFB1CD72270AD890022CA55 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB1CD62270AD890022CA55 /* ProductDetailsViewController.swift */; };
 		8FFB1CDB2270C90D0022CA55 /* ProductDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB1CD92270C90D0022CA55 /* ProductDescriptionCollectionViewCell.swift */; };
@@ -62,8 +64,6 @@
 		8FFD03BA226F751F007395FF /* ProductDetatilsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD03B9226F751F007395FF /* ProductDetatilsDto.swift */; };
 		8FFD13432285C5D80081442B /* RelatedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD13412285C5D80081442B /* RelatedCollectionViewCell.swift */; };
 		8FFD13442285C5D80081442B /* RelatedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD13422285C5D80081442B /* RelatedCollectionViewCell.xib */; };
-		8FFD13472285C61D0081442B /* MoreProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD13452285C61D0081442B /* MoreProductCollectionViewCell.swift */; };
-		8FFD13482285C61D0081442B /* MoreProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD13462285C61D0081442B /* MoreProductCollectionViewCell.xib */; };
 		8FFD928C22676C280064A487 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD928A22676C280064A487 /* CategoryTableViewCell.swift */; };
 		8FFD928D22676C280064A487 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */; };
 		8FFD92902267787A0064A487 /* ListProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */; };
@@ -110,6 +110,7 @@
 		8FF51E802289BF3B00B28129 /* SizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FF51E832289BF4C00B28129 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FF51E842289BF4C00B28129 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FF87FF92281BA7800B2E394 /* ProductReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferSLiderCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFA91BD22906D5600BC0C71 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8FFAF8F9228B147100A3B690 /* RatingNReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingNReviewViewController.swift; sourceTree = "<group>"; };
 		8FFB1CD62270AD890022CA55 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		8FFB1CD92270C90D0022CA55 /* ProductDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -129,8 +131,6 @@
 		8FFD03B9226F751F007395FF /* ProductDetatilsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetatilsDto.swift; sourceTree = "<group>"; };
 		8FFD13412285C5D80081442B /* RelatedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFD13422285C5D80081442B /* RelatedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelatedCollectionViewCell.xib; sourceTree = "<group>"; };
-		8FFD13452285C61D0081442B /* MoreProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		8FFD13462285C61D0081442B /* MoreProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FFD928A22676C280064A487 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			children = (
 				8FFB1CD82270C8AB0022CA55 /* ProductDetatilsCell */,
 				8FFD928922676BFF0064A487 /* CategoryCell */,
-				8FF539612260E19300DF7568 /* ProductCell */,
+				8FF539612260E19300DF7568 /* HomeProductCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +225,7 @@
 				8F2FE760226A11BF00870D26 /* CategoryWiseProductViewController.swift */,
 				8FFB1CD62270AD890022CA55 /* ProductDetailsViewController.swift */,
 				8FFAF8F9228B147100A3B690 /* RatingNReviewViewController.swift */,
+				8FFA91BD22906D5600BC0C71 /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +233,7 @@
 		8F0EE52D225501B600413123 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */,
 				8F0EE532225504C600413123 /* Fonts */,
 				8F0EE52E225501FE00413123 /* Global.swift */,
 				8F0EE5302255021100413123 /* APIManager.swift */,
@@ -273,7 +275,7 @@
 			path = OptionCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		8FF539612260E19300DF7568 /* ProductCell */ = {
+		8FF539612260E19300DF7568 /* HomeProductCell */ = {
 			isa = PBXGroup;
 			children = (
 				8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */,
@@ -285,7 +287,7 @@
 				8FFA78BD228EE90B0098589A /* OnSaleProductsCollectionViewCell.swift */,
 				8FFA78BE228EE90B0098589A /* OnSaleProductsCollectionViewCell.xib */,
 			);
-			path = ProductCell;
+			path = HomeProductCell;
 			sourceTree = "<group>";
 		};
 		8FFB1CD82270C8AB0022CA55 /* ProductDetatilsCell */ = {
@@ -300,8 +302,6 @@
 				8FF87FFA2281BA7800B2E394 /* ProductReviewCell.xib */,
 				8FFD13412285C5D80081442B /* RelatedCollectionViewCell.swift */,
 				8FFD13422285C5D80081442B /* RelatedCollectionViewCell.xib */,
-				8FFD13452285C61D0081442B /* MoreProductCollectionViewCell.swift */,
-				8FFD13462285C61D0081442B /* MoreProductCollectionViewCell.xib */,
 				8F064C8122871D82003F23DB /* ProductInformationCollectionViewCell.swift */,
 				8F064C8222871D82003F23DB /* ProductInformationCollectionViewCell.xib */,
 			);
@@ -340,6 +340,7 @@
 				8F0D9CF122527BE700988960 /* Frameworks */,
 				8F0D9CF222527BE700988960 /* Resources */,
 				9EB6A0B52634F4F2C1E76B0F /* [CP] Embed Pods Frameworks */,
+				12E9DCAEF2AE54BDB1E0B7D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,7 +392,6 @@
 			files = (
 				8F0EE547225504F800413123 /* Aurora EXTRA BOLD ITALIC.OTF in Resources */,
 				8F0EE552225504F800413123 /* Aurora.OTF in Resources */,
-				8FFD13482285C61D0081442B /* MoreProductCollectionViewCell.xib in Resources */,
 				8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */,
 				8FFD928D22676C280064A487 /* CategoryTableViewCell.xib in Resources */,
 				8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */,
@@ -418,6 +418,7 @@
 				8FF87FFC2281BA7800B2E394 /* ProductReviewCell.xib in Resources */,
 				8F064C8422871D82003F23DB /* ProductInformationCollectionViewCell.xib in Resources */,
 				8F0EE54D225504F800413123 /* Aurora REGULAR ITALIC.OTF in Resources */,
+				8FF53871228FD3FE00CA9D02 /* GoogleService-Info.plist in Resources */,
 				8F0EE54C225504F800413123 /* Aurora LIGHT.OTF in Resources */,
 				8F0EE546225504F800413123 /* Aurora BOLD.OTF in Resources */,
 				8F0EE549225504F800413123 /* Aurora EXTRATHIN ITALIC.OTF in Resources */,
@@ -428,6 +429,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12E9DCAEF2AE54BDB1E0B7D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Aurora/Pods-Aurora-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aurora/Pods-Aurora-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47DEC2EB6A1C5BD68DEB8544 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,7 +475,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -468,7 +494,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -487,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FFA91BE22906D5600BC0C71 /* SignInViewController.swift in Sources */,
 				8FFAF8FA228B147100A3B690 /* RatingNReviewViewController.swift in Sources */,
 				8F9881CC225A3BFB00F81F6B /* MainCategoryDto.swift in Sources */,
 				8FFA78BF228EE90B0098589A /* OnSaleProductsCollectionViewCell.swift in Sources */,
@@ -499,7 +533,6 @@
 				8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */,
 				8F9772B222737B9D0077D5F9 /* ProductOptionCollectionViewCell.swift in Sources */,
 				8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */,
-				8FFD13472285C61D0081442B /* MoreProductCollectionViewCell.swift in Sources */,
 				8FFB1CDB2270C90D0022CA55 /* ProductDescriptionCollectionViewCell.swift in Sources */,
 				8F02A43222566B010044DAB1 /* HomeDto.swift in Sources */,
 				8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */,

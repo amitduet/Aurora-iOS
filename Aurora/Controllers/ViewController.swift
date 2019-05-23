@@ -138,6 +138,8 @@ class ViewController: UIViewController {
             NSAttributedString.Key.font: UIFont.init(name: Global.FONTNAME_SEMIBOLD, size: 12)
         ]
         
+        UITabBar.appearance().tintColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.6)
+        
         UITabBarItem.appearance().setTitleTextAttributes(attrsNormal as [NSAttributedString.Key : Any], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes(attrsSelected as [NSAttributedString.Key : Any], for: .normal)
 

@@ -30,6 +30,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }
     }
     
+    //MARK:UITableView DataSource and Delegate 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (categoryDto != nil){
             return categoryDto.category.count
@@ -38,7 +39,6 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = CategoryTableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath, category: categoryDto.category[indexPath.row])
         return cell
     }
@@ -47,8 +47,10 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
         productDetatilsVC?.productCategoryID = categoryDto.category[indexPath.row].categoryID
         self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
-
-
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
     }
 
 }

@@ -20,6 +20,10 @@ class ListProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor.init(hex: "#E5E5E5")
+        self.layer.borderColor = UIColor.red.cgColor
+        self.layer.borderWidth = 1
+        
         // Initialization code
     }
     

@@ -5,21 +5,21 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Aurora BLACK ITALIC.OTF</string>
-        <string>Aurora BLACK.OTF</string>
-        <string>Aurora BOLD ITALIC.OTF</string>
-        <string>Aurora BOLD.OTF</string>
-        <string>Aurora EXTRA BOLD ITALIC.OTF</string>
-        <string>Aurora EXTRA BOLD.OTF</string>
-        <string>Aurora EXTRATHIN ITALIC.OTF</string>
-        <string>Aurora EXTRATHIN.OTF</string>
-        <string>Aurora LIGHT ITALIC.OTF</string>
-        <string>Aurora LIGHT.OTF</string>
-        <string>Aurora REGULAR ITALIC.OTF</string>
-        <string>Aurora SEMIBOLD ITALIC.OTF</string>
-        <string>Aurora SEMIBOLD.OTF</string>
-        <string>Aurora THIN ITALIC.OTF</string>
-        <string>Aurora THIN.OTF</string>
-        <string>Aurora.OTF</string>
+		<string>Aurora BLACK.OTF</string>
+		<string>Aurora BOLD ITALIC.OTF</string>
+		<string>Aurora BOLD.OTF</string>
+		<string>Aurora EXTRA BOLD ITALIC.OTF</string>
+		<string>Aurora EXTRA BOLD.OTF</string>
+		<string>Aurora EXTRATHIN ITALIC.OTF</string>
+		<string>Aurora EXTRATHIN.OTF</string>
+		<string>Aurora LIGHT ITALIC.OTF</string>
+		<string>Aurora LIGHT.OTF</string>
+		<string>Aurora REGULAR ITALIC.OTF</string>
+		<string>Aurora SEMIBOLD ITALIC.OTF</string>
+		<string>Aurora SEMIBOLD.OTF</string>
+		<string>Aurora THIN ITALIC.OTF</string>
+		<string>Aurora THIN.OTF</string>
+		<string>Aurora.OTF</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -65,5 +65,26 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb181905736075350</string>
+				<string>com.googleusercontent.apps.1234567890-abcdefg</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>181905736075350</string>
+	<key>FacebookDisplayName</key>
+	<string>Aurora</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

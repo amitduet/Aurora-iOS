@@ -16,4 +16,12 @@ target 'Aurora' do
   pod 'Firebase/Messaging'
   pod 'Cosmos', '~> 19.0'
 
+  # Facebook POD
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  
+  # Google Sign In 
+  pod 'GoogleSignIn'
+
 end

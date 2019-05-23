@@ -20,9 +20,7 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     }
     
     //MARK: API Request
-    
     func getProductListByCategoryId()  {
-        
         APIManager.init().getCategoryProducts(categoryId: self.productCategoryID, success: { data in
             do {
                 self.productList = try JSONDecoder().decode(ProductDto.self, from: data)
@@ -32,7 +30,6 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
             }
         }) { error in
         }
-
     }
     
     //MARK: UICollectionview Delegate
@@ -49,7 +46,24 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        
+        let heightRatio:CGFloat = 0.47385
+        
+        return CGSize(width: (view.frame.width - 20), height: ((view.frame.width - 20)*heightRatio))
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+
 
 }

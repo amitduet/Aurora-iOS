@@ -109,7 +109,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
         case 0:
             return CGSize(width: width, height: 300)
         case 1:
-            return CGSize(width: width, height: 330)
+            return CGSize(width: width, height: 400)
         case 2:
             return CGSize(width: width, height: 150)
 

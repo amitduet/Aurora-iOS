@@ -289,7 +289,7 @@
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ORz-gb-Ljg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="WISHLIST" id="kjw-Kv-5E2"/>
+                    <tabBarItem key="tabBarItem" title="WISHLIST" image="wish" id="kjw-Kv-5E2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQu-Ac-1wk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,7 +349,7 @@
         <scene sceneID="yyO-pT-YLk">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="1MV-YU-2kl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CATEGORIES" id="FYo-9F-qwo"/>
+                    <tabBarItem key="tabBarItem" title="CATEGORIES" image="category" id="FYo-9F-qwo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="VJa-cl-aRE">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -375,7 +375,7 @@
         <scene sceneID="lsD-j4-zxL">
             <objects>
                 <navigationController storyboardIdentifier="HomeUINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="AEu-5a-Pkn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" id="oBa-Ir-kVm"/>
+                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="oBa-Ir-kVm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="88D-UN-ZDy">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -654,10 +654,67 @@
             </objects>
             <point key="canvasLocation" x="2760" y="2141.1971830985917"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="8xz-Ch-G0F">
+            <objects>
+                <viewController id="Oou-Bx-E3W" customClass="SignInViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Atm-fn-KyD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwz-FY-3wb">
+                                <rect key="frame" x="10" y="60" width="140" height="40"/>
+                                <color key="backgroundColor" red="0.37044270829999998" green="0.3527832031" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HVb-u8-jd5"/>
+                                    <constraint firstAttribute="width" constant="140" id="QP0-1o-8pC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <state key="normal" title="Facebooks Login ">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginAction:" destination="Oou-Bx-E3W" eventType="touchUpInside" id="0YK-2e-Ffh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujo-Ih-Hri">
+                                <rect key="frame" x="170" y="60" width="140" height="40"/>
+                                <color key="backgroundColor" red="0.37044270829999998" green="0.3527832031" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="SA7-d0-260"/>
+                                    <constraint firstAttribute="width" constant="140" id="mNk-6K-KlX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <state key="normal" title="Google Login ">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginAction:" destination="Oou-Bx-E3W" eventType="touchUpInside" id="VQd-2R-sld"/>
+                                    <action selector="googleSiginButtonAction:" destination="Oou-Bx-E3W" eventType="touchUpInside" id="a1R-Zr-agC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jwz-FY-3wb" firstAttribute="leading" secondItem="ScY-8K-peq" secondAttribute="leading" constant="10" id="DA8-vn-ROs"/>
+                            <constraint firstItem="ScY-8K-peq" firstAttribute="trailing" secondItem="Ujo-Ih-Hri" secondAttribute="trailing" constant="10" id="OsK-b5-p6e"/>
+                            <constraint firstItem="Jwz-FY-3wb" firstAttribute="top" secondItem="ScY-8K-peq" secondAttribute="top" constant="40" id="bcE-iA-Afx"/>
+                            <constraint firstItem="Ujo-Ih-Hri" firstAttribute="leading" secondItem="Jwz-FY-3wb" secondAttribute="trailing" constant="20" id="cnL-18-wUz"/>
+                            <constraint firstItem="Ujo-Ih-Hri" firstAttribute="top" secondItem="Jwz-FY-3wb" secondAttribute="top" id="gyo-1D-0Hc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ScY-8K-peq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CzE-5e-2Sq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="appIcon" width="190" height="189"/>
+        <image name="category" width="16" height="16"/>
+        <image name="home" width="16" height="16"/>
         <image name="men" width="360" height="568"/>
         <image name="ops" width="141.5" height="141.5"/>
+        <image name="wish" width="16" height="15"/>
     </resources>
 </document>
