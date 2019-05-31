@@ -10,9 +10,11 @@ import UIKit
 import Alamofire
 
 class APIManager: NSObject {
-    
+    //http://aurorafashionbd.com/testphase/aurora/image/
+    //http://aurorafashionbd.com/testphase/image/catalog/Men/Shirt/shirt.jpg
+    //http://aurorafashionbd.com/testphase/aurora/image/catalog/Men/Shirt/shirt.jpg
     let BASE_URL:String = "https://aurorafashionbd.com/ocLiveApi/public/api/"
-    static let IMAGE_BASE_URL = "http://aurorafashionbd.com/2ndphase/aurora/image/"
+    static let IMAGE_BASE_URL = "http://aurorafashionbd.com/testphase/image/"
     let TOKEN_KEY = "token"
     
     let authError:NSError = NSError.init(domain: "token expire", code: 401, userInfo: nil)
@@ -218,7 +220,7 @@ class APIManager: NSObject {
    
     //MARK: add wish list
     func addWishList( customerId:Int,productId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
-        guard let url = URL(string: String(format: "%@getWishList",BASE_URL)) else {
+        guard let url = URL(string: String(format: "%@addWishlist?",BASE_URL)) else {
             return
         }
         let headers = ["Authorization": self.getJWTToken()]

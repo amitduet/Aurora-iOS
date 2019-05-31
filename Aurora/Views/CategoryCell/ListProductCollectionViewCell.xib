@@ -34,13 +34,13 @@
                         <rect key="frame" x="154" y="0.0" width="171" height="154"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX9-M3-9rh">
-                                <rect key="frame" x="10" y="10" width="56" height="15"/>
+                                <rect key="frame" x="10" y="10" width="50.5" height="17.5"/>
                                 <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-4J-Xg1">
-                                <rect key="frame" x="71" y="12.5" width="38" height="10"/>
+                                <rect key="frame" x="65.5" y="13" width="33.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,22 +53,25 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="wish"/>
-                                <state key="selected" image="fav_se"/>
+                                <state key="selected" image="fav-selected"/>
+                                <connections>
+                                    <action selector="wishButtonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jka-JT-Khl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabel LabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHD-wY-zcu">
-                                <rect key="frame" x="10" y="38" width="156" height="26"/>
+                                <rect key="frame" x="10" y="40.5" width="156" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5/16 Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWw-ds-bLJ">
-                                <rect key="frame" x="32" y="93.5" width="129" height="13"/>
+                                <rect key="frame" x="32" y="99.5" width="129" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mwC-w3-BSb">
-                                <rect key="frame" x="10" y="94" width="12" height="12"/>
+                                <rect key="frame" x="10" y="101" width="12" height="12"/>
                                 <color key="tintColor" red="0.96862745100000003" green="0.64705882349999999" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="K3l-Ko-QZr"/>
@@ -121,7 +124,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="fav_se" width="16" height="16"/>
+        <image name="fav-selected" width="58.5" height="54.5"/>
         <image name="star" width="60" height="60"/>
         <image name="wish" width="16" height="15"/>
     </resources>

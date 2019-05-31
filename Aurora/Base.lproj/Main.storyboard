@@ -282,14 +282,49 @@
         <!--WISHLIST-->
         <scene sceneID="JMF-7t-BKe">
             <objects>
-                <viewController id="LFV-gs-QVM" sceneMemberID="viewController">
+                <viewController id="LFV-gs-QVM" customClass="WishListViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ftQ-zS-JZ5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XX9-lh-jTJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dlz-Ij-XzU">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e2b-ys-mvi">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="LFV-gs-QVM" id="80y-zL-pWn"/>
+                                    <outlet property="delegate" destination="LFV-gs-QVM" id="Zqx-J3-thX"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ORz-gb-Ljg" firstAttribute="bottom" secondItem="XX9-lh-jTJ" secondAttribute="bottom" id="CpY-24-bSw"/>
+                            <constraint firstItem="ORz-gb-Ljg" firstAttribute="trailing" secondItem="XX9-lh-jTJ" secondAttribute="trailing" id="IiA-0A-xAf"/>
+                            <constraint firstItem="XX9-lh-jTJ" firstAttribute="leading" secondItem="ftQ-zS-JZ5" secondAttribute="leading" id="RQw-xe-c1j"/>
+                            <constraint firstItem="XX9-lh-jTJ" firstAttribute="top" secondItem="ftQ-zS-JZ5" secondAttribute="top" id="dyh-M8-7V1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ORz-gb-Ljg"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="WISHLIST" image="wish" id="kjw-Kv-5E2"/>
+                    <connections>
+                        <outlet property="productCollectionView" destination="XX9-lh-jTJ" id="61n-p7-Upx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQu-Ac-1wk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
