@@ -175,8 +175,8 @@ class APIManager: NSObject {
     }
     
     //MARK: get product detatils using product id
-    func getProductDeatiles( productId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
-        guard let url = URL(string: String(format: "%@productDetails/%d",BASE_URL,productId)) else {
+    func getProductDeatiles( productId:String, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
+        guard let url = URL(string: String(format: "%@productDetails/%@",BASE_URL,productId)) else {
             return
         }
         let headers = ["Authorization": self.getJWTToken()]

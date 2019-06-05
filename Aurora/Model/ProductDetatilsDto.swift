@@ -266,10 +266,10 @@ class ProductDetatilsDto: Codable {
     let aditionalImages: [AditionalImage]
     let options: [Option]
     let relatedProducts: [RelatedProduct]
-    let rating: String
+    let rating: Int
     let review: [Review]
     
-    init(productDetails: [ProductDetail], aditionalImages: [AditionalImage], options: [Option], relatedProducts: [RelatedProduct], rating: String, review: [Review]) {
+    init(productDetails: [ProductDetail], aditionalImages: [AditionalImage], options: [Option], relatedProducts: [RelatedProduct], rating: Int, review: [Review]) {
         self.productDetails = productDetails
         self.aditionalImages = aditionalImages
         self.options = options
@@ -358,21 +358,17 @@ enum Prefix: String, Codable {
 }
 
 class ProductDetail: Codable {
-    let productID: Int
+    let productID: String
     let model, sku, upc, ean: String
     let jan, isbn, mpn, location: String
-    let quantity, stockStatusID: Int
-    let image: String
-    let manufacturerID, shipping: Int
-    let price: String
-    let points, taxClassID: Int
-    let dateAvailable, weight: String
-    let weightClassID: Int
-    let length, width, height: String
-    let lengthClassID, subtract, minimum, sortOrder: Int
-    let status, viewed: Int
+    let shipping, manufacturerID, stockStatusID, quantity, image: String
+    let taxClassID, points, price: String
+    let weightClassID, dateAvailable, weight: String
+    let lengthClassID,length, width, height: String
+    let subtract, minimum, sortOrder: String
+    let status, viewed: String
     let dateAdded, dateModified: String
-    let languageID: Int
+    let languageID: String
     let name, description, tag, metaTitle: String
     let metaDescription, metaKeyword, discountPrice: String
     
@@ -402,7 +398,7 @@ class ProductDetail: Codable {
         case discountPrice
     }
     
-    init(productID: Int, model: String, sku: String, upc: String, ean: String, jan: String, isbn: String, mpn: String, location: String, quantity: Int, stockStatusID: Int, image: String, manufacturerID: Int, shipping: Int, price: String, points: Int, taxClassID: Int, dateAvailable: String, weight: String, weightClassID: Int, length: String, width: String, height: String, lengthClassID: Int, subtract: Int, minimum: Int, sortOrder: Int, status: Int, viewed: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, description: String, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, discountPrice: String) {
+    init(productID: String, model: String, sku: String, upc: String, ean: String, jan: String, isbn: String, mpn: String, location: String, quantity: String, stockStatusID: String, image: String, manufacturerID: String, shipping: String, price: String, points: String, taxClassID: String, dateAvailable: String, weight: String, weightClassID: String, length: String, width: String, height: String, lengthClassID: String, subtract: String, minimum: String, sortOrder: String, status: String, viewed: String, dateAdded: String, dateModified: String, languageID: String, name: String, description: String, tag: String, metaTitle: String, metaDescription: String, metaKeyword: String, discountPrice: String) {
         self.productID = productID
         self.model = model
         self.sku = sku

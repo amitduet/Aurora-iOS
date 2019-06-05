@@ -37,7 +37,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.productImageView.layer.addSublayer(layer0)
 
         
-        self.productDescriptionLabel.text = productName
+//        self.productDescriptionLabel.text = productName
         self.productPriceLabel.text = String(format:"%0.0f%@",price.floatValue,Global.takaUniCode)
         self.productPreviousPriceLabel.text = String(format:"%0.0f%@",previousPrice.floatValue,Global.takaUniCode)
     }
@@ -53,7 +53,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductCollectionViewCell
         cell .cellupdateUI(price: newlyArrived.price, previousPrice: "500.00", productName: newlyArrived.name, productImageUrl: newlyArrived.image)
         //        cell .cellupdateUI(price: newlyArrived.price, previousPrice: newlyArrived.discountPrice, productName: newlyArrived.name, productImageUrl: newlyArrived.image)
-
+        cell.productDescriptionLabel.text = newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag
+        debugPrint(newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag)
+        
+        cell.productDescriptionLabel.backgroundColor = .red
         return cell
     }
 

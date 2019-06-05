@@ -10,7 +10,7 @@ import UIKit
 
 protocol DiscountProductDelegate  {
     
-     func navigateToProductDetails(productId:Int)
+     func navigateToProductDetails(productId:String)
 }
 
 class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {

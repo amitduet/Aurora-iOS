@@ -93,7 +93,7 @@ class ProductDescriptionCollectionViewCell: UICollectionViewCell,UICollectionVie
                 cell.previousPriceLabel.attributedText = attributeString
             }
 //        }
-        cell.ratingNReviewLabel.text = String(format: "%0.2f/%d Reviews", (productDetatils.rating as NSString).doubleValue, productDetatils.review.count)
+        cell.ratingNReviewLabel.text = String(format: "%@/%d Reviews", productDetatils.rating, productDetatils.review.count)
         
         return cell
     }

@@ -11,7 +11,7 @@ import UIKit
 class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var productDetatilsCollectionView:UICollectionView!
-    public var productId:Int = 0
+    public var productId:String = "0"
     var productDetatilsDto:ProductDetatilsDto!
     
     
@@ -24,7 +24,7 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
     //MARK: REQUEST TO PRODUCT DETATILES API CALL
     func fetchProductDetatils() {
         #warning("Hard coded value will remove ")
-        self.productId = 30
+//        self.productId = "30"
         APIManager.init().getProductDeatiles(productId: self.productId, success: {  data in
             do {
                 self.productDetatilsDto = try JSONDecoder().decode(ProductDetatilsDto.self, from: data)

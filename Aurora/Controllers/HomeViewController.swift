@@ -117,6 +117,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
         default:
             let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: self.homeDataDto!.latestProducts[indexPath.row-3])
+            
             return cell
         }
     }
@@ -165,7 +166,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }
     }
     
-    func navigateToProductDetails(productId: Int) {
+    func navigateToProductDetails(productId: String) {
         let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: ProductDetailsViewController.self))as? ProductDetailsViewController
         productDetatilsVC?.productId = productId
         self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
