@@ -13,6 +13,7 @@ class APIManager: NSObject {
     //http://aurorafashionbd.com/testphase/aurora/image/
     //http://aurorafashionbd.com/testphase/image/catalog/Men/Shirt/shirt.jpg
     //http://aurorafashionbd.com/testphase/aurora/image/catalog/Men/Shirt/shirt.jpg
+    
     let BASE_URL:String = "https://aurorafashionbd.com/ocLiveApi/public/api/"
     static let IMAGE_BASE_URL = "http://aurorafashionbd.com/testphase/image/"
     let TOKEN_KEY = "token"

@@ -56,6 +56,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         cell.productDescriptionLabel.text = newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag
         debugPrint(newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag)
         
+        cell.productDescriptionLabel.textColor = .green
         cell.productDescriptionLabel.backgroundColor = .red
         return cell
     }
