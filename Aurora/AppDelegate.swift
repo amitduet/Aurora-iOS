@@ -28,8 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         FirebaseApp.configure()
         pushNotificationSetup(application: application)
-        
-        
         return true
     }
     

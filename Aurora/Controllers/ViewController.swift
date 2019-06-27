@@ -29,49 +29,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        APIManager.init().getJWT(completion: {token  in
-//            debugPrint(token!)
-//        })
         
+        if (APIManager.init().getJWTToken().isEmpty){
+            APIManager.init().getAccessToken(success: { (token) in
+                        self.fetchMainCategory()
+            }) { (error) in
+            }
+        }else{
+            fetchMainCategory()
+        }
         
-        /*
-         getPostList(success: { data in
-         do {
-         let userList = try JSONDecoder().decode(UserList.self, from: data)
-         debugPrint(userList[0].body)
-         debugPrint(userList[0].title)
-         debugPrint(userList[0].userID)
-         debugPrint(userList[0].title)
-         
-         } catch let error as NSError{
-         debugPrint(error)
-         }
-         }) { error in
-         
-         }
+    }
 
-         */
-
-//        APIManager.init().getAccessToken(success: { (token) in
-//            debugPrint(token)
-//            // store token
-//            
-//        }) { (error) in
-//        }
-        
-//        APIManager.init().getFirstLoadData(success: { response in
-//            let userList = try JSONDecoder().decode(MainCategoryDto.self, from: data)
-//
-//
-//        }) { error in
-//
-//        }
-        
-        debugPrint(UIFont.familyNames)
-
+    func fetchMainCategory(){
         APIManager.init().getFirstLoadData(success: { (data) in
-
+            
             do {
                 let mainCategoryDto = try JSONDecoder().decode(MainCategoryDto.self, from: data)
                 var index:NSInteger = 1;
@@ -83,7 +55,6 @@ class ViewController: UIViewController {
                     self.titleLabel.alpha = 1.0
                     self.titleLabel.textColor = UIColor.black
                     self.titleLabel.font = UIFont.init(name: Global.FONTNAME_LIGHT_ITALIC, size: 14)
-
                     switch (index){
                     case 1:
                         button = self.firstCategoryButton
@@ -109,7 +80,8 @@ class ViewController: UIViewController {
             
         }
     }
-
+    
+    
     func categoryButtonSet(tag:NSInteger,title:String, categoryButton:UIButton) -> Void {
         
         categoryButton.tag = tag
