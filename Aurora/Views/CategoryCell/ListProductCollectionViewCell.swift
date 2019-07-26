@@ -24,9 +24,9 @@ class ListProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.init(hex: "#E5E5E5")
-        self.layer.borderColor = UIColor.red.cgColor
-        self.layer.borderWidth = 1
+//        self.backgroundColor = UIColor.init(hex: "#E5E5E5")
+//        self.layer.borderColor = UIColor.red.cgColor
+//        self.layer.borderWidth = 1
         
         self.addToWishListButton.setImage(UIImage.init(named: "wish"), for: .normal)
         self.addToWishListButton.setImage(UIImage.init(named: "fav-selected"), for: .selected)
@@ -92,14 +92,19 @@ class ListProductCollectionViewCell: UICollectionViewCell {
         cell.productImageView.sd_setIndicatorStyle(.gray)
         cell.productImageView.sd_setImage(with: imageUrl)
         
-        cell.productDescriptionLabel.text = product.description
         cell.productCurrentPriceLabel.text = String(format:"%@ %@",product.price,Global.takaUniCode)
         
         cell.productId = product.productID
-        
         cell.addToWishListButton.tag = product.productID
 
-        //        cell.productPreviousPriceLabel.text = newlyArrived.pri
+        if let temp = product.discountPrice {
+            cell.productPreviousPriceLabel.attributedText =
+                Global.stikeThroughPrice(previousPrice: temp.floatValue)
+        } else {
+            print("Name is nil. Cannot process")
+        }
+
+
         cell.backgroundColor = .lightGray
         return cell
     }

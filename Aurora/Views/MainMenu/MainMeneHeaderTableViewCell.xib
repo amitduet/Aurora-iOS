@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Aurora SEMIBOLD.OTF">
+            <string>Averta-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="320" id="KGk-i7-Jjw" customClass="MainMeneHeaderTableViewCell" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="359.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssu-4l-pjD" userLabel="TopView">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="359.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-full-transparent-white" translatesAutoresizingMaskIntoConstraints="NO" id="tc4-1m-ZLA">
+                                <rect key="frame" x="105" y="75" width="150" height="150"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="ocw-9b-hIT"/>
+                                    <constraint firstAttribute="height" constant="150" id="yb3-OW-IUe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iq-VS-P4K">
+                                <rect key="frame" x="20" y="245" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="v2Y-YF-Ovf"/>
+                                </constraints>
+                                <mutableString key="text">Amblyopia is decreased vision in one or both eyes due to abnormal development of vision in infancy or childhood. In amblyopia, there may not be an obvious problem of the eye. Vision loss occurs because nerve pathways between the brain and the eye aren't properly stimulated. The brain “learns” to see only blurry images with the amblyopic eye even when glasses are used. As a result, the brain favors one eye, usually due to poor vision in the other eye. Another word for amblyopia is often “lazy eye.” It is the leading cause of vision loss amongst children.</mutableString>
+                                <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tc4-1m-ZLA" firstAttribute="centerX" secondItem="ssu-4l-pjD" secondAttribute="centerX" id="1Lv-ua-hqC"/>
+                            <constraint firstItem="gvn-gu-Now" firstAttribute="trailing" secondItem="9iq-VS-P4K" secondAttribute="trailing" constant="20" id="8fg-Vo-7wR"/>
+                            <constraint firstItem="tc4-1m-ZLA" firstAttribute="centerY" secondItem="ssu-4l-pjD" secondAttribute="centerY" constant="-30" id="Uie-Ok-dxE"/>
+                            <constraint firstItem="9iq-VS-P4K" firstAttribute="leading" secondItem="gvn-gu-Now" secondAttribute="leading" constant="20" id="bhF-zl-guU"/>
+                            <constraint firstItem="9iq-VS-P4K" firstAttribute="top" secondItem="tc4-1m-ZLA" secondAttribute="bottom" constant="20" id="dWc-79-o3B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gvn-gu-Now"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ssu-4l-pjD" secondAttribute="trailing" id="I0u-xo-Ihf"/>
+                    <constraint firstAttribute="bottom" secondItem="ssu-4l-pjD" secondAttribute="bottom" id="Rc6-Si-6iV"/>
+                    <constraint firstItem="ssu-4l-pjD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WPe-2q-x7R"/>
+                    <constraint firstItem="ssu-4l-pjD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o09-9Q-vdE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="headerTitleLabel" destination="9iq-VS-P4K" id="Xmj-eR-FP3"/>
+            </connections>
+            <point key="canvasLocation" x="98.550724637681171" y="89.0625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Logo-full-transparent-white" width="101" height="101"/>
+    </resources>
+</document>

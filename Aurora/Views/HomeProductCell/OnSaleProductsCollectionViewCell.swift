@@ -26,9 +26,7 @@ class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDel
     
     class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, withDiscountProductList:[DiscountProduct], delegate:DiscountProductDelegate) -> OnSaleProductsCollectionViewCell {
         let identifier = String(describing: self)
-        
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! OnSaleProductsCollectionViewCell
         cell.backgroundColor = UIColor.clear
         cell.discountProducts = withDiscountProductList
@@ -49,8 +47,8 @@ class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width
-            let height =  (width - 15)/2 * 1.34
-            return CGSize(width: (width - 15)/2, height: height)
+        let height =  (width - 15)/2 * 1.34
+        return CGSize(width: (width - 15)/2, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -71,7 +69,10 @@ class OnSaleProductsCollectionViewCell: UICollectionViewCell,UICollectionViewDel
         if (section > 3){
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+
+      //  return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

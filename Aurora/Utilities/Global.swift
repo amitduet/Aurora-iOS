@@ -13,13 +13,60 @@ class Global: NSObject {
     static let FONTNAME_LIGHT_ITALIC = "Averta-LightItalic"
     static let FONTNAME_SEMIBOLD = "Averta-Semibold"
     static let FONTNAME_REGULAR = "Averta-Regular"
-    
+
     static let STORY_BOARD_NAME = "Main"
     static let takaUniCode = "\u{09F3}"
     
     static let cellBorderColor = "9B9B9B"
     static let cellBorderWidth = 1.0
+    static let previousPriceColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.6)
 
+    class func stikeThroughPrice(previousPrice:Float) ->  NSAttributedString{
+        
+        let strokeEffect: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.strikethroughColor:previousPriceColor,
+        ]
+        
+        let strokeString = NSAttributedString(string: String(format:"%0.0f%@",previousPrice,Global.takaUniCode), attributes: strokeEffect)
+        return strokeString
+    }
+    
+    class func menuAperar (viewController:UIViewController){
+        let menuView:MainMenuView = MainMenuView.fromNib()
+        menuView.frame = CGRect(origin: CGPoint(x: -viewController.view.frame.size.width*2, y: viewController.view.frame.origin.y), size: viewController.view.frame.size)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.addSubview(menuView)
+        menuView.isLogin = false
+        menuView.menuApearAnimation()
+    }
+    
+//    class func setUpNavigationBar (viewController:UIViewController){
+//            let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 25))
+//            backButton.setImage(UIImage(named: "nav_drawer"), for: .normal)
+//        backButton.addTarget(viewController, action:#selector(viewController.menuButtonDidTap), for: .touchUpInside)
+//        //    backButton.addTarget(viewController, action: #selector(viewController.menuButtonDidTap), for: .touchUpInside)
+//            
+//            let logoText = UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 25))
+//            logoText.setImage(UIImage(named: "Title"), for: .normal)
+//            logoText.isUserInteractionEnabled = false
+//            
+//            let navSearchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 27, height: 25))
+//            navSearchButton.setImage(UIImage(named: "nav_Search"), for: .normal)
+//            
+//            let searchBarButton = UIBarButtonItem(customView: navSearchButton)
+//            
+//            let navStoreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 27, height: 25))
+//            navStoreButton.setImage(UIImage(named: "nav_addtoCard"), for: .normal)
+//            
+//            let storeBarButton = UIBarButtonItem(customView: navStoreButton)
+//            let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+//            space.width = 10
+//            viewController.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backButton), UIBarButtonItem(customView: logoText) ]
+//            viewController.navigationItem.rightBarButtonItems = [space, searchBarButton,space, storeBarButton]
+//
+//    }
+//
 
 //    extension NameDescribable {
 //        var typeName: String {

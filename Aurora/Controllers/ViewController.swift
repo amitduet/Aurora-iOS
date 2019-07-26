@@ -75,7 +75,6 @@ class ViewController: UIViewController {
             } catch let error as NSError{
                 debugPrint(error)
             }
-            
         }) { (Error) in
             
         }
@@ -83,7 +82,6 @@ class ViewController: UIViewController {
     
     
     func categoryButtonSet(tag:NSInteger,title:String, categoryButton:UIButton) -> Void {
-        
         categoryButton.tag = tag
         categoryButton.layer.cornerRadius = categoryButton.frame.height/2;
         categoryButton.layer.masksToBounds = true
@@ -100,6 +98,9 @@ class ViewController: UIViewController {
         }
     
     @objc func categoryButtonPressed(_ sender: UIButton?) {
+        
+        APIManager.init().setCurrentCategort(selectedCategoryId: sender!.tag)
+        
         let homeTabBarController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: UITabBarController.self))as? UITabBarController
     
         let attrsNormal = [

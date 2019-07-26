@@ -9,7 +9,6 @@
 import UIKit
 
 class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DiscountProductDelegate {
-    
 
     @IBOutlet weak var splashView: UIView!
     var splashImageView:UIImageView!
@@ -17,26 +16,17 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     public var splashImageName:String!
     public var mainCategoryId:Int = 0
-
     public var homeDataDto:HomeDto!
     
     public func splashScreenUISetUp(imageName:String){
         self.splashImageView.image = UIImage.init(named: imageName)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.navigationBar.isHidden = false
-    }
-
     func splashViewShow() {
         self.navigationController?.isNavigationBarHidden = true
-        
         let window = UIApplication.shared.windows.first;
         self.splashImageView = UIImageView.init(frame: window!.frame)
-        
         self.splashImageView.image = UIImage.init(named: splashImageName)
-        
         window?.addSubview(self.splashImageView)
         DispatchQueue.main.asyncAfter(deadline:.now() + 3) {
             self.splashView.alpha = 0.0
@@ -45,23 +35,14 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    fileprivate func setUpNavigationBar() {
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 25))
         backButton.setImage(UIImage(named: "nav_drawer"), for: .normal)
-        //        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        
-        //08-Logo-Text--Transparent
+        backButton.addTarget(self, action: #selector(menuButtonDidTap), for: .touchUpInside)
         
         let logoText = UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 25))
         logoText.setImage(UIImage(named: "Title"), for: .normal)
         logoText.isUserInteractionEnabled = false
-        
         
         let navSearchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 27, height: 25))
         navSearchButton.setImage(UIImage(named: "nav_Search"), for: .normal)
@@ -72,22 +53,32 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         navStoreButton.setImage(UIImage(named: "nav_addtoCard"), for: .normal)
         
         let storeBarButton = UIBarButtonItem(customView: navStoreButton)
-
-        
         let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
         space.width = 10
-
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backButton), UIBarButtonItem(customView: logoText) ]
-
         self.navigationItem.rightBarButtonItems = [space, searchBarButton,space, storeBarButton]
-        
-      
-        
-       // self.navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-
-        
+    }
+    
+    //MARK: View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+  
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpNavigationBar()
         fetchHomeCategoryRequest()
         splashViewShow()
+    }
+    
+    //MARK: Button Action
+    @objc func menuButtonDidTap()  {
+        Global.menuAperar(viewController: self)
     }
     
     //MARK: API Request
@@ -124,8 +115,6 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         if (homeDataDto.latestProducts.count > 0){
             numberOfSection += homeDataDto.latestProducts.count  + 1
         }
-        
-
         return numberOfSection
     }
     
@@ -149,10 +138,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case 2:
             let cell = OnSaleProductsCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath,  withDiscountProductList:self.homeDataDto.discountProducts, delegate: self)
             return cell
-        
         default:
             let cell = ProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, newlyArrived: self.homeDataDto!.latestProducts[indexPath.row-3])
-            
             return cell
         }
     }
@@ -166,7 +153,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case 1:
             return CGSize(width: width, height: 100)
         case 2:
-            return CGSize(width: width, height: 350)
+            return CGSize(width: width, height: 400)
         default:            
             let height =  (width - 15)/2 * 1.34
             return CGSize(width: (width - 15)/2, height:height)

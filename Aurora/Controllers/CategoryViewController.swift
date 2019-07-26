@@ -14,8 +14,35 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var categoryDto:CategoryDto!
     public var categoryId:NSInteger!
     
+    fileprivate func setUpNavigationBar() {
+        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 25))
+        backButton.setImage(UIImage(named: "nav_drawer"), for: .normal)
+        backButton.addTarget(self, action: #selector(menuButtonDidTap), for: .touchUpInside)
+        
+        let logoText = UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 25))
+        logoText.setImage(UIImage(named: "Title"), for: .normal)
+        logoText.isUserInteractionEnabled = false
+        
+        let navSearchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 27, height: 25))
+        navSearchButton.setImage(UIImage(named: "nav_Search"), for: .normal)
+        
+        let searchBarButton = UIBarButtonItem(customView: navSearchButton)
+        
+        let navStoreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 27, height: 25))
+        navStoreButton.setImage(UIImage(named: "nav_addtoCard"), for: .normal)
+        
+        let storeBarButton = UIBarButtonItem(customView: navStoreButton)
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+        space.width = 10
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backButton), UIBarButtonItem(customView: logoText) ]
+        self.navigationItem.rightBarButtonItems = [space, searchBarButton,space, storeBarButton]
+    }
+
+    //MARK: View Life Cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setUpNavigationBar()
 
         self.navigationController?.title = "Categories"
         APIManager.init().getProductCategories(categoryId: categoryId, success: { data in
@@ -29,6 +56,12 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         }) { error in
         }
     }
+    
+    //MARK: Button Action
+    @objc func menuButtonDidTap()  {
+        Global.menuAperar(viewController: self)
+    }
+
     
     //MARK:UITableView DataSource and Delegate 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

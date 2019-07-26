@@ -30,7 +30,7 @@ class ProductByCategory: Codable {
     let quantity: Int
     let price: String
     let specialPrice: String?
-    let discountPrice: JSONNull?
+    let discountPrice: String?
     let description: String
     
     enum CodingKeys: String, CodingKey {
@@ -45,7 +45,7 @@ class ProductByCategory: Codable {
         case tag, model, sku, location, quantity, price, specialPrice, discountPrice, description
     }
     
-    init(categoryID: Int, parentID: Int, categoryName: String, productID: Int, image: String, name: String, metaTitle: String, metaDescription: String, metaKeyword: String, tag: String, model: String, sku: String, location: String, quantity: Int, price: String, specialPrice: String?, discountPrice: JSONNull?, description: String) {
+    init(categoryID: Int, parentID: Int, categoryName: String, productID: Int, image: String, name: String, metaTitle: String, metaDescription: String, metaKeyword: String, tag: String, model: String, sku: String, location: String, quantity: Int, price: String, specialPrice: String?, discountPrice: String?, description: String) {
         self.categoryID = categoryID
         self.parentID = parentID
         self.categoryName = categoryName

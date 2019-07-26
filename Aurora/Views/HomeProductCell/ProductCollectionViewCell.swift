@@ -23,7 +23,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.init(hex: "F6F6F6")?.cgColor
     }
     
-    func cellupdateUI(price:String, previousPrice:String, productName:String, productImageUrl:String) {
+    func cellupdateUI(price:String, previousPrice:String, productName:String, productImageUrl:String, productDescription:String) {
         let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,productImageUrl))
         self.productImageView.sd_setShowActivityIndicatorView(true)
         self.productImageView.sd_setIndicatorStyle(.gray)
@@ -35,11 +35,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         layer0.bounds = self.productImageView.bounds
         layer0.position = self.productImageView.center
         self.productImageView.layer.addSublayer(layer0)
-
-        
-//        self.productDescriptionLabel.text = productName
         self.productPriceLabel.text = String(format:"%0.0f%@",price.floatValue,Global.takaUniCode)
-        self.productPreviousPriceLabel.text = String(format:"%0.0f%@",previousPrice.floatValue,Global.takaUniCode)
+    
+        self.productDescriptionLabel.text = productDescription.withoutHtml.removeNewLineTag
+
+        self.productPreviousPriceLabel.attributedText =
+            Global.stikeThroughPrice(previousPrice: previousPrice.floatValue)
     }
 
     @IBAction func favoriteButtonPressed(_ sender: Any) {
@@ -51,13 +52,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductCollectionViewCell
-        cell .cellupdateUI(price: newlyArrived.price, previousPrice: "500.00", productName: newlyArrived.name, productImageUrl: newlyArrived.image)
-        //        cell .cellupdateUI(price: newlyArrived.price, previousPrice: newlyArrived.discountPrice, productName: newlyArrived.name, productImageUrl: newlyArrived.image)
-        cell.productDescriptionLabel.text = newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag
-        debugPrint(newlyArrived.latestProductDescription.withoutHtml.removeNewLineTag)
-        
-        cell.productDescriptionLabel.textColor = .green
-        cell.productDescriptionLabel.backgroundColor = .red
+        cell .cellupdateUI(price: newlyArrived.price, previousPrice: newlyArrived.discountPrice, productName: newlyArrived.name, productImageUrl: newlyArrived.image, productDescription:newlyArrived.latestProductDescription)
         return cell
     }
 
@@ -68,7 +63,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductCollectionViewCell
         
-        cell .cellupdateUI(price: discountProduct.price, previousPrice: discountProduct.oldPrice, productName: discountProduct.name, productImageUrl: discountProduct.image);
+        cell .cellupdateUI(price: discountProduct.price, previousPrice: discountProduct.oldPrice, productName: discountProduct.name, productImageUrl: discountProduct.image, productDescription:discountProduct.discountProductDescription);
         return cell
     }
     
@@ -80,7 +75,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductCollectionViewCell
         
         //relatedProduct.discountPrice!
-            cell .cellupdateUI(price: relatedProduct.price, previousPrice: "500.00", productName: relatedProduct.name, productImageUrl: relatedProduct.image)
+            cell .cellupdateUI(price: relatedProduct.price, previousPrice: "500.00", productName: relatedProduct.name, productImageUrl: relatedProduct.image,productDescription:"")
 
         return cell
     }

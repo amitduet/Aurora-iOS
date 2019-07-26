@@ -17,6 +17,8 @@ class APIManager: NSObject {
     let BASE_URL:String = "https://aurorafashionbd.com/ocLiveApi/public/api/"
     static let IMAGE_BASE_URL = "http://aurorafashionbd.com/testphase/image/"
     let TOKEN_KEY = "token"
+    public let mainCatagroyKey = "MainCategory"
+    public let selectedCategoryIdKey = "SelectedCategoryId"
     
     let authError:NSError = NSError.init(domain: "token expire", code: 401, userInfo: nil)
 
@@ -31,8 +33,30 @@ class APIManager: NSObject {
         return jwtToken
     }
     
+    func getCategoryList()->[MainCategory]{
+        if (UserDefaults.standard.value(forKey: self.mainCatagroyKey) == nil){
+            return []
+        }
+
+        do {
+            let mainCategoryDto = try JSONDecoder().decode(MainCategoryDto.self, from: UserDefaults.standard.value(forKey: self.mainCatagroyKey) as! Data)
+            return mainCategoryDto.mainCategories
+        }catch{
+            return []
+        }
+    }
+    
+    func setCurrentCategort(selectedCategoryId:Int) {
+        UserDefaults.standard.set(selectedCategoryId, forKey: self.selectedCategoryIdKey)
+    }
+    
     func getCategoryId() -> Int {
-        return 61; // restore from UserDefaults
+        if (UserDefaults.standard.value(forKey: self.selectedCategoryIdKey) == nil){
+            return 0
+        }
+        let selectedCategoryId:Int = UserDefaults.standard.value(forKey: self.selectedCategoryIdKey) as! Int
+
+        return selectedCategoryId; // restore from UserDefaults
     }
     
     //MARK: API Login and Get app access Token
@@ -42,7 +66,6 @@ class APIManager: NSObject {
         }
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
         Alamofire.request(url, method: .post, parameters: ["email":"ram@aurorafashionbd.com","password":"super123"], encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
-            
             switch response.result {
             case .success:
                 if let data = response.result.value {
@@ -74,6 +97,7 @@ class APIManager: NSObject {
             switch response.result {
             case .success:
                 if let data = response.data {
+                    UserDefaults.standard.set(response.data, forKey: self.mainCatagroyKey)
                     success(data)
                 }
             case .failure(let error):
@@ -104,8 +128,6 @@ class APIManager: NSObject {
         }
     }
     
-    
-    
     //MARK: get Home category
     func getHome( categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
         guard let url = URL(string: String(format: "%@homeByCategory/%d?",BASE_URL,categoryId)) else {
@@ -128,7 +150,6 @@ class APIManager: NSObject {
         }
     }
     
-        
     //MARK: get Product Categories
     func getProductCategories(categoryId:Int, success:@escaping (_ response : Data)->(), failure : @escaping (_ error : Error)->())  {
         guard let url = URL(string: String(format: "%@category",BASE_URL)) else {

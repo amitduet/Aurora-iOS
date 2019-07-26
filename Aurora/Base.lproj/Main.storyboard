@@ -235,7 +235,7 @@
                     <connections>
                         <segue destination="AEu-5a-Pkn" kind="relationship" relationship="viewControllers" id="Agi-dO-vWU"/>
                         <segue destination="1MV-YU-2kl" kind="relationship" relationship="viewControllers" id="pZf-bR-lFR"/>
-                        <segue destination="LFV-gs-QVM" kind="relationship" relationship="viewControllers" id="SPc-V0-74I"/>
+                        <segue destination="eRM-Hi-fs9" kind="relationship" relationship="viewControllers" id="SPc-V0-74I"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geR-Z5-OlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +261,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.17692838499999999" blue="0.11787928540000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rmQ-vc-h5L" firstAttribute="top" secondItem="Gjd-Ex-ewb" secondAttribute="top" id="DMw-kD-pC4"/>
                             <constraint firstItem="Gjd-Ex-ewb" firstAttribute="trailing" secondItem="rmQ-vc-h5L" secondAttribute="trailing" id="K91-ww-LN0"/>
@@ -277,9 +277,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEE-nE-5A4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136" y="1428"/>
+            <point key="canvasLocation" x="3133.125" y="1427.1126760563379"/>
         </scene>
-        <!--WISHLIST-->
+        <!--Wish List View Controller-->
         <scene sceneID="JMF-7t-BKe">
             <objects>
                 <viewController id="LFV-gs-QVM" customClass="WishListViewController" customModule="Aurora" customModuleProvider="target" sceneMemberID="viewController">
@@ -288,7 +288,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XX9-lh-jTJ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="10" width="320" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dlz-Ij-XzU">
                                     <size key="itemSize" width="50" height="50"/>
@@ -317,18 +317,18 @@
                             <constraint firstItem="ORz-gb-Ljg" firstAttribute="bottom" secondItem="XX9-lh-jTJ" secondAttribute="bottom" id="CpY-24-bSw"/>
                             <constraint firstItem="ORz-gb-Ljg" firstAttribute="trailing" secondItem="XX9-lh-jTJ" secondAttribute="trailing" id="IiA-0A-xAf"/>
                             <constraint firstItem="XX9-lh-jTJ" firstAttribute="leading" secondItem="ftQ-zS-JZ5" secondAttribute="leading" id="RQw-xe-c1j"/>
-                            <constraint firstItem="XX9-lh-jTJ" firstAttribute="top" secondItem="ftQ-zS-JZ5" secondAttribute="top" id="dyh-M8-7V1"/>
+                            <constraint firstItem="XX9-lh-jTJ" firstAttribute="top" secondItem="ftQ-zS-JZ5" secondAttribute="top" constant="10" id="dyh-M8-7V1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ORz-gb-Ljg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="WISHLIST" image="wish" id="kjw-Kv-5E2"/>
+                    <navigationItem key="navigationItem" id="zsb-7x-64U"/>
                     <connections>
                         <outlet property="productCollectionView" destination="XX9-lh-jTJ" id="61n-p7-Upx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQu-Ac-1wk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="2060"/>
+            <point key="canvasLocation" x="1089.375" y="2059.8591549295775"/>
         </scene>
         <!--Category Wise Product View Controller-->
         <scene sceneID="JBn-MA-hUl">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLh-GZ-C9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2794" y="1428"/>
+            <point key="canvasLocation" x="3791.25" y="1427.1126760563379"/>
         </scene>
         <!--CATEGORIES-->
         <scene sceneID="yyO-pT-YLk">
@@ -404,7 +404,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZp-BD-E5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="1429"/>
+            <point key="canvasLocation" x="2415" y="1428.1690140845071"/>
         </scene>
         <!--HOME-->
         <scene sceneID="lsD-j4-zxL">
@@ -494,7 +494,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNn-mk-FzE" userLabel="Previous Label">
-                                        <rect key="frame" x="213.5" y="65.5" width="26.5" height="10"/>
+                                        <rect key="frame" x="215.5" y="65.5" width="24.5" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="cld-II-5tE"/>
                                         </constraints>
@@ -503,7 +503,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9E-I8-pgW" userLabel="Current price ">
-                                        <rect key="frame" x="146" y="63" width="46" height="15"/>
+                                        <rect key="frame" x="146" y="62" width="42" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -548,14 +548,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oin-eT-GUW">
-                                        <rect key="frame" x="10" y="182" width="290" height="52"/>
+                                        <rect key="frame" x="10" y="182" width="290" height="61"/>
                                         <string key="text">Please purchase the product first and review it. AURORA wants your voice to be heard. We take your feedback very seriously to enrich the customer experience. </string>
                                         <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It you have purchased the product already, please Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkN-o7-CFX">
-                                        <rect key="frame" x="10" y="274" width="290" height="24"/>
+                                        <rect key="frame" x="10" y="283" width="290" height="28"/>
                                         <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -623,7 +623,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help our community to grow and but authentic products." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSW-2H-opa">
-                                        <rect key="frame" x="20" y="90" width="290" height="26"/>
+                                        <rect key="frame" x="20" y="90" width="290" height="30.5"/>
                                         <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.59610445205479456" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -687,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hT3-Lp-vWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2760" y="2141.1971830985917"/>
+            <point key="canvasLocation" x="3757.5" y="2141.1971830985917"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="8xz-Ch-G0F">
@@ -742,6 +742,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzE-5e-2Sq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--WISHLIST-->
+        <scene sceneID="BYv-2r-q3R">
+            <objects>
+                <navigationController storyboardIdentifier="WishNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="eRM-Hi-fs9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="WISHLIST" image="wish" id="kjw-Kv-5E2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Bb-QZ-oBx">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LFV-gs-QVM" kind="relationship" relationship="rootViewController" id="7j8-q2-hIs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMU-6p-HSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91.875" y="2059.8591549295775"/>
         </scene>
     </scenes>
     <resources>

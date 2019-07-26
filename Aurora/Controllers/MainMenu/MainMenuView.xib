@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Aurora SEMIBOLD.OTF">
+            <string>Averta-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="4FA-tR-Y9E" customClass="MainMenuView" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ez-9P-Jeb" userLabel="LeftView">
+                    <rect key="frame" x="0.0" y="0.0" width="276" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VkI-0v-gbn" userLabel="TopView">
+                            <rect key="frame" x="0.0" y="0.0" width="276" height="260"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-full-transparent-white" translatesAutoresizingMaskIntoConstraints="NO" id="6k4-y6-0wk">
+                                    <rect key="frame" x="63" y="43" width="150" height="150"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="BUR-N3-u0v"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG2-7H-GZa">
+                                    <rect key="frame" x="10" y="200" width="256" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="zEz-gM-NPw"/>
+                                    </constraints>
+                                    <string key="text">Amblyopia is decreased vision in one or both eyes due to abnormal development of vision in infancy or childhood. In amblyopia, there may not be an obvious problem of the eye. Vision loss occurs because nerve pathways between the brain and the eye aren't properly stimulated. The brain “learns” to see only blurry images with the amblyopic eye even when glasses are used. As a result, the brain favors one eye, usually due to poor vision in the other eye. Another word for amblyopia is often “lazy eye.” It is the leading cause of vision loss amongst children.</string>
+                                    <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="13"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="fG2-7H-GZa" secondAttribute="trailing" constant="10" id="7S1-c6-Umw"/>
+                                <constraint firstItem="6k4-y6-0wk" firstAttribute="centerX" secondItem="VkI-0v-gbn" secondAttribute="centerX" id="9Pw-AD-eWX"/>
+                                <constraint firstAttribute="bottom" secondItem="6k4-y6-0wk" secondAttribute="bottom" constant="67" id="JFv-bf-p27"/>
+                                <constraint firstAttribute="bottom" secondItem="fG2-7H-GZa" secondAttribute="bottom" constant="20" id="h34-f6-Rui"/>
+                                <constraint firstItem="fG2-7H-GZa" firstAttribute="leading" secondItem="VkI-0v-gbn" secondAttribute="leading" constant="10" id="sPb-NK-C81"/>
+                                <constraint firstItem="6k4-y6-0wk" firstAttribute="top" secondItem="VkI-0v-gbn" secondAttribute="top" constant="43" id="wxG-Iv-XS8"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="myy-WO-OMi">
+                            <rect key="frame" x="0.0" y="270" width="276" height="626"/>
+                            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="626" id="9sp-bl-s6f"/>
+                            </constraints>
+                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <connections>
+                                <outlet property="dataSource" destination="4FA-tR-Y9E" id="Pk2-YG-5ZE"/>
+                                <outlet property="delegate" destination="4FA-tR-Y9E" id="T00-De-mw6"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="VkI-0v-gbn" secondAttribute="trailing" id="82J-eE-UoD"/>
+                        <constraint firstItem="VkI-0v-gbn" firstAttribute="leading" secondItem="4ez-9P-Jeb" secondAttribute="leading" id="Vwm-Cs-vqj"/>
+                        <constraint firstItem="myy-WO-OMi" firstAttribute="leading" secondItem="4ez-9P-Jeb" secondAttribute="leading" id="fjv-QA-ily"/>
+                        <constraint firstAttribute="bottom" secondItem="myy-WO-OMi" secondAttribute="bottom" id="h70-6p-C1r"/>
+                        <constraint firstItem="VkI-0v-gbn" firstAttribute="top" secondItem="4ez-9P-Jeb" secondAttribute="top" id="lP6-M9-jeU"/>
+                        <constraint firstItem="myy-WO-OMi" firstAttribute="top" secondItem="VkI-0v-gbn" secondAttribute="bottom" constant="10" id="o7J-se-b7E"/>
+                        <constraint firstAttribute="trailing" secondItem="myy-WO-OMi" secondAttribute="trailing" id="scV-rc-K64"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgU-a0-AFP">
+                    <rect key="frame" x="276" y="0.0" width="138" height="896"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mgU-a0-AFP" secondAttribute="bottom" id="1RG-zg-7UL"/>
+                <constraint firstItem="mgU-a0-AFP" firstAttribute="leading" secondItem="4ez-9P-Jeb" secondAttribute="trailing" id="JUx-mN-tMG"/>
+                <constraint firstItem="4ez-9P-Jeb" firstAttribute="leading" secondItem="4FA-tR-Y9E" secondAttribute="leading" id="OqD-P8-jIy"/>
+                <constraint firstItem="mgU-a0-AFP" firstAttribute="top" secondItem="4FA-tR-Y9E" secondAttribute="top" id="OtZ-HG-3Bk"/>
+                <constraint firstItem="mgU-a0-AFP" firstAttribute="height" secondItem="4ez-9P-Jeb" secondAttribute="height" id="V0A-9m-Ahz"/>
+                <constraint firstItem="4ez-9P-Jeb" firstAttribute="top" secondItem="4FA-tR-Y9E" secondAttribute="top" id="eEd-Yx-mzG"/>
+                <constraint firstAttribute="bottom" secondItem="4ez-9P-Jeb" secondAttribute="bottom" id="ggT-US-qIm"/>
+                <constraint firstItem="mgU-a0-AFP" firstAttribute="width" secondItem="4ez-9P-Jeb" secondAttribute="width" multiplier="0.5:1" id="qwY-GH-xIy"/>
+                <constraint firstAttribute="trailing" secondItem="mgU-a0-AFP" secondAttribute="trailing" id="s9g-sB-5jv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="QPv-1j-XoH"/>
+            <connections>
+                <outlet property="headerTitleLabel" destination="fG2-7H-GZa" id="YKD-Tc-SDl"/>
+                <outlet property="leftewView" destination="4ez-9P-Jeb" id="EiL-81-wSH"/>
+                <outlet property="menuTable" destination="myy-WO-OMi" id="bsr-Ri-PcZ"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo-full-transparent-white" width="101" height="101"/>
+    </resources>
+</document>
