@@ -50,7 +50,6 @@
 		8FF51E822289BF3B00B28129 /* SizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF51E802289BF3B00B28129 /* SizeCollectionViewCell.xib */; };
 		8FF51E852289BF4C00B28129 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF51E832289BF4C00B28129 /* ColorCollectionViewCell.swift */; };
 		8FF51E862289BF4C00B28129 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF51E842289BF4C00B28129 /* ColorCollectionViewCell.xib */; };
-		8FF53871228FD3FE00CA9D02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */; };
 		8FF539642260E1AB00DF7568 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */; };
 		8FF539652260E1AB00DF7568 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */; };
 		8FF81E3122E9F16000D0C9F4 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF81E3022E9F16000D0C9F4 /* MainMenuView.xib */; };
@@ -79,6 +78,7 @@
 		8FFD928D22676C280064A487 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */; };
 		8FFD92902267787A0064A487 /* ListProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */; };
 		8FFD92912267787A0064A487 /* ListProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD928F2267787A0064A487 /* ListProductCollectionViewCell.xib */; };
+		8FFE721122EE15A2008EAB90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE721022EE15A1008EAB90 /* GoogleService-Info.plist */; };
 		E4766DB662C29648D988B0EB /* Pods_Aurora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB334F459A3E0875724573D /* Pods_Aurora.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +128,6 @@
 		8FF51E802289BF3B00B28129 /* SizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FF51E832289BF4C00B28129 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FF51E842289BF4C00B28129 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
-		8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FF539622260E1AB00DF7568 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FF539632260E1AB00DF7568 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FF81E3022E9F16000D0C9F4 /* MainMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
@@ -157,6 +156,7 @@
 		8FFD928B22676C280064A487 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		8FFD928E2267787A0064A487 /* ListProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFD928F2267787A0064A487 /* ListProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFE721022EE15A1008EAB90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94D5C4B6898F53B346745865 /* Pods-Aurora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.debug.xcconfig"; sourceTree = "<group>"; };
 		AFB334F459A3E0875724573D /* Pods_Aurora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aurora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A64FFAC14DD36B395B4BE4 /* Pods-Aurora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aurora.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aurora/Pods-Aurora.release.xcconfig"; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 		8F0EE52D225501B600413123 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8FF53870228FD3FE00CA9D02 /* GoogleService-Info.plist */,
+				8FFE721022EE15A1008EAB90 /* GoogleService-Info.plist */,
 				8F0EE532225504C600413123 /* Fonts */,
 				8F0EE52E225501FE00413123 /* Global.swift */,
 				8F0EE5302255021100413123 /* APIManager.swift */,
@@ -458,6 +458,7 @@
 				8F0EE54E225504F800413123 /* Aurora SEMIBOLD ITALIC.OTF in Resources */,
 				8F0EE54F225504F800413123 /* Aurora SEMIBOLD.OTF in Resources */,
 				8F0EE54B225504F800413123 /* Aurora LIGHT ITALIC.OTF in Resources */,
+				8FFE721122EE15A2008EAB90 /* GoogleService-Info.plist in Resources */,
 				8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */,
 				8F0EE544225504F800413123 /* Aurora BLACK.OTF in Resources */,
 				8FF51E822289BF3B00B28129 /* SizeCollectionViewCell.xib in Resources */,
@@ -479,7 +480,6 @@
 				8F064C8422871D82003F23DB /* ProductInformationCollectionViewCell.xib in Resources */,
 				8F004B7722C5301200CDC110 /* MainMeneCategoryableViewCell.xib in Resources */,
 				8F0EE54D225504F800413123 /* Aurora REGULAR ITALIC.OTF in Resources */,
-				8FF53871228FD3FE00CA9D02 /* GoogleService-Info.plist in Resources */,
 				8F0EE54C225504F800413123 /* Aurora LIGHT.OTF in Resources */,
 				8F0EE546225504F800413123 /* Aurora BOLD.OTF in Resources */,
 				8F0EE549225504F800413123 /* Aurora EXTRATHIN ITALIC.OTF in Resources */,
@@ -769,7 +769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amitchowdhury.Aurora;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amitchowdhury.Aurora2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -788,7 +788,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amitchowdhury.Aurora;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amitchowdhury.Aurora2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

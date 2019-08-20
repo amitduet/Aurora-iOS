@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class Global: NSObject {
 
     static let FONTNAME_LIGHT_ITALIC = "Averta-LightItalic"
@@ -32,13 +33,14 @@ class Global: NSObject {
         return strokeString
     }
     
-    class func menuAperar (viewController:UIViewController){
+    class func menuAperar (viewController:UIViewController)-> MainMenuView{
         let menuView:MainMenuView = MainMenuView.fromNib()
         menuView.frame = CGRect(origin: CGPoint(x: -viewController.view.frame.size.width*2, y: viewController.view.frame.origin.y), size: viewController.view.frame.size)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.addSubview(menuView)
         menuView.isLogin = false
         menuView.menuApearAnimation()
+        return menuView
     }
     
 //    class func setUpNavigationBar (viewController:UIViewController){
@@ -135,6 +137,7 @@ extension String {
         return self.replacingOccurrences(of: "\n", with: " ", options: .literal, range: nil)
 
     }
+    
 
 }
 

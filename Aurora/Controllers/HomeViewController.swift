@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DiscountProductDelegate {
+class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DiscountProductDelegate,MenuDelegate {
 
     @IBOutlet weak var splashView: UIView!
     var splashImageView:UIImageView!
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     //MARK: Button Action
     @objc func menuButtonDidTap()  {
-        Global.menuAperar(viewController: self)
+        Global.menuAperar(viewController: self).delegate = self
     }
     
     //MARK: API Request
@@ -193,6 +193,25 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         productDetatilsVC?.productId = productId
         self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
 
+    }
+
+    //MARK: Menu Delgate
+    func didSelectCategory(categoryId: Int) {
+        self.mainCategoryId = categoryId
+        fetchHomeCategoryRequest()
+    }
+    
+    func didSelectUserInAcitvites(activitesId: Int) {
+        let siginViewController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: SignInViewController.self))as? SignInViewController
+        self.navigationController?.pushViewController(siginViewController!, animated: true)
+    }
+    
+    func didSelectAppSupport(supportId: Int) {
+        
+    }
+    
+    func didSelectSignOutButton() {
+        
     }
 
 }

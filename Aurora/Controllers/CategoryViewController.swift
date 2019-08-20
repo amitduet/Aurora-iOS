@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MenuDelegate {
     
     @IBOutlet var categoryTableView:UITableView!
     var categoryDto:CategoryDto!
@@ -41,10 +41,9 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     //MARK: View Life Cycle 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpNavigationBar()
 
-        self.navigationController?.title = "Categories"
+//        self.navigationController?.title = "Categories"
         APIManager.init().getProductCategories(categoryId: categoryId, success: { data in
             do {
                 self.categoryDto = try JSONDecoder().decode(CategoryDto.self, from: data)
@@ -59,7 +58,7 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     //MARK: Button Action
     @objc func menuButtonDidTap()  {
-        Global.menuAperar(viewController: self)
+        Global.menuAperar(viewController: self).delegate = self
     }
 
     
@@ -84,6 +83,24 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
+    }
+
+    //MARK: Menu Delgate
+    func didSelectCategory(categoryId: Int) {
+//        self.mainCategoryId = categoryId
+//        fetchHomeCategoryRequest()
+    }
+    
+    func didSelectUserInAcitvites(activitesId: Int) {
+        
+    }
+    
+    func didSelectAppSupport(supportId: Int) {
+        
+    }
+    
+    func didSelectSignOutButton() {
+        
     }
 
 }

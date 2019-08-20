@@ -22,7 +22,24 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb181905736075350</string>
-				<string>com.googleusercontent.apps.1234567890-abcdefg</string>
+				<string>com.googleusercontent.apps.819439700590-9jq8sn0426f756n69anip86o2ivs1ofo</string>
+				<string></string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.301198515480-vr7bjtluqottd2i8l700plhvs9q1ri8j</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.amitchowdhury.Aurora1</string>
 			</array>
 		</dict>
 	</array>

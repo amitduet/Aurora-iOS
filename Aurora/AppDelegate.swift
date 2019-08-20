@@ -10,10 +10,11 @@ import UIKit
 import Firebase
 import UserNotifications
 import FacebookCore
-
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+    
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
@@ -26,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }) { (error) in
             
         }
-        FirebaseApp.configure()
-        pushNotificationSetup(application: application)
+ 
         return true
     }
     
@@ -43,6 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = "301198515480-vr7bjtluqottd2i8l700plhvs9q1ri8j.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
+        
+        pushNotificationSetup(application: application)
         return true
     }
 
@@ -136,6 +141,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
     }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return GIDSignIn.sharedInstance().handle(url as URL?,
+//                                                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+//                                                 annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+//    }
+//
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+
+    
+    //MARK:Google Sigin Delegate
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+
+        debugPrint(user)
+        debugPrint(error)
+    }
+
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+
 }
 
 extension AppDelegate : UNUserNotificationCenterDelegate {
@@ -194,6 +230,8 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
     }
     // [END ios_10_data_message]
+    
+
 }
 
 

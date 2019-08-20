@@ -29,8 +29,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (APIManager.init().getJWTToken().isEmpty){
+        if (APIManager.init().getJWTToken() == ""){
             APIManager.init().getAccessToken(success: { (token) in
                         self.fetchMainCategory()
             }) { (error) in
@@ -127,7 +126,7 @@ class ViewController: UIViewController {
         homeViewController?.mainCategoryId = sender!.tag
         
         let categoryNavController = homeTabBarController?.viewControllers?[1] as? UINavigationController
-        
+        categoryNavController?.navigationBar.tintColor = .white
         let categoryViewController = categoryNavController?.viewControllers[0] as? CategoryViewController
         categoryViewController?.categoryId = sender!.tag
         self.navigationController?.pushViewController(homeTabBarController!, animated: true)

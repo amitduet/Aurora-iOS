@@ -7,6 +7,12 @@
 //
 
 import UIKit
+protocol MenuDelegate {
+    func didSelectCategory(categoryId:Int)
+    func didSelectUserInAcitvites(activitesId:Int)
+    func didSelectAppSupport(supportId:Int)
+    func didSelectSignOutButton()
+}
 
 class MainMenuView: UIView,UITableViewDelegate,UITableViewDataSource {
 
@@ -15,6 +21,7 @@ class MainMenuView: UIView,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var headerTitleLabel: UILabel!
     var userName:String?
     let numberOfSection = 3
+    var delegate:MenuDelegate?
     
     var isLogin = false{
         didSet{
@@ -75,6 +82,25 @@ class MainMenuView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            let categorylist:[MainCategory] = APIManager.init().getCategoryList()
+            let mainCategory:MainCategory = categorylist[indexPath.row]
+            
+            let currentCategoryId = APIManager.init().getCategoryId()
+            
+            if (currentCategoryId != mainCategory.categoryID){
+                APIManager.init().setCurrentCategort(selectedCategoryId: mainCategory.categoryID)
+                delegate?.didSelectCategory(categoryId: mainCategory.categoryID)
+            }
+        case 1:
+            debugPrint("")
+            delegate?.didSelectUserInAcitvites(activitesId: indexPath.row)
+            
+        default:
+            delegate?.didSelectAppSupport(supportId: indexPath.row)
+        }
+        menuDisApearAction()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -82,20 +108,24 @@ class MainMenuView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func menuApearAnimation(){
-
         UIView.animate(withDuration: 0.75, animations: {
             self.frame = CGRect(origin: CGPoint(x:0, y: self.frame.origin.y), size: self.frame.size)
         }) { _ in
            
         }
     }
-    //MARK: Touch Delegate
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    func menuDisApearAction(){
         UIView.animate(withDuration: 1, animations: {
             self.frame = CGRect(origin: CGPoint(x: -self.frame.size.width*2, y: self.frame.origin.y), size: self.frame.size)
         }) { _ in
             self.removeFromSuperview()
         }
+    }
+    
+    //MARK: Touch Delegate
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        menuDisApearAction()
     }
 }
 
