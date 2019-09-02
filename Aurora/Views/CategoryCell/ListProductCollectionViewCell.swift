@@ -79,6 +79,33 @@ class ListProductCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    class func cellCategoryDetatils(collectionView: UICollectionView, indexPath:IndexPath, product:ProductByCategoryDetatils) -> ListProductCollectionViewCell {
+        let identifier = String(describing: self)
+        
+        collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ListProductCollectionViewCell
+        
+        let imageUrl = URL(string: String(format: "%@%@",APIManager.IMAGE_BASE_URL,product.image))
+        cell.productImageView.sd_setShowActivityIndicatorView(true)
+        cell.productImageView.sd_setIndicatorStyle(.gray)
+        cell.productImageView.sd_setImage(with: imageUrl)
+        
+        cell.productCurrentPriceLabel.text = String(format:"%@ %@",product.price,Global.takaUniCode)
+        
+        cell.productId = product.productID
+        cell.addToWishListButton.tag = product.productID
+        
+        if let temp = product.specialPrice {
+            cell.productPreviousPriceLabel.attributedText =
+                Global.stikeThroughPrice(previousPrice: temp.floatValue)
+        } else {
+            print("Name is nil. Cannot process")
+        }
+        cell.backgroundColor = .lightGray
+        return cell
+    }
+    
     
     class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, product:ProductByCategory) -> ListProductCollectionViewCell {
         let identifier = String(describing: self)

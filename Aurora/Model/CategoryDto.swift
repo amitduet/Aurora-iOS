@@ -1,25 +1,23 @@
-//
-//  CategoryDto.swift
-//  Aurora
-//
-//  Created by Amit Chowdhury on 4/16/19.
-//  Copyright © 2019 Amit Chowdhury. All rights reserved.
-//
-
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
 //   let categoryDto = try? newJSONDecoder().decode(CategoryDto.self, from: jsonData)
 
 import Foundation
 
+// MARK: - CategoryDto
 class CategoryDto: Codable {
-    let category: [Category]
+    let status: Bool
+    let category, subCategory: [Category]
     
-    init(category: [Category]) {
+    init(status: Bool, category: [Category], subCategory: [Category]) {
+        self.status = status
         self.category = category
+        self.subCategory = subCategory
     }
 }
 
+// MARK: - Category
 class Category: Codable {
     let categoryID: Int
     let image: String
@@ -27,7 +25,7 @@ class Category: Codable {
     let status: Int
     let dateAdded, dateModified: String
     let languageID: Int
-    let name, description, metaTitle, metaDescription: String
+    let name, categoryDescription, metaTitle, metaDescription: String
     let metaKeyword: String
     
     enum CodingKeys: String, CodingKey {
@@ -40,13 +38,14 @@ class Category: Codable {
         case dateAdded = "date_added"
         case dateModified = "date_modified"
         case languageID = "language_id"
-        case name, description
+        case name
+        case categoryDescription = "description"
         case metaTitle = "meta_title"
         case metaDescription = "meta_description"
         case metaKeyword = "meta_keyword"
     }
     
-    init(categoryID: Int, image: String, parentID: Int, top: Int, column: Int, sortOrder: Int, status: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, description: String, metaTitle: String, metaDescription: String, metaKeyword: String) {
+    init(categoryID: Int, image: String, parentID: Int, top: Int, column: Int, sortOrder: Int, status: Int, dateAdded: String, dateModified: String, languageID: Int, name: String, categoryDescription: String, metaTitle: String, metaDescription: String, metaKeyword: String) {
         self.categoryID = categoryID
         self.image = image
         self.parentID = parentID
@@ -58,7 +57,7 @@ class Category: Codable {
         self.dateModified = dateModified
         self.languageID = languageID
         self.name = name
-        self.description = description
+        self.categoryDescription = categoryDescription
         self.metaTitle = metaTitle
         self.metaDescription = metaDescription
         self.metaKeyword = metaKeyword

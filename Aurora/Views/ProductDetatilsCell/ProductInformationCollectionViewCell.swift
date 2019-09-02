@@ -20,9 +20,10 @@ class ProductInformationCollectionViewCell: UICollectionViewCell,UICollectionVie
     
     @IBOutlet weak var sizeCollectionView:UICollectionView!
     @IBOutlet weak var colorsCollectionView:UICollectionView!
-    
+    @IBOutlet weak var colorTitleLabel:UILabel!
+    @IBOutlet weak var productDetailsLabel:UILabel!
+
     var cellHeight:Float = 0.0
-    
     
     var colors:NSMutableArray!
     var sizes:NSMutableArray!
@@ -31,35 +32,34 @@ class ProductInformationCollectionViewCell: UICollectionViewCell,UICollectionVie
     override func awakeFromNib() {
         super.awakeFromNib()
         self.cellHeight = Float(self.frame.size.height)
-        // Initialization code
-        //CGFloat height = self.collectionView.collectionViewLayout.collectionViewContentSize.height;
-
     }
     
     @IBAction func sizeButtonPressed(_ sender: UIButton) {
     }
+    
     
     func filterOption(options:[Option]){
         colors = NSMutableArray.init()
         sizes = NSMutableArray.init()
 
         for colorOption in options{
-            switch colorOption.optionDescriptionName{
-                case OptionDescriptionName.color:
-                    colors.add(colorOption)
-                break
-                case OptionDescriptionName.size:
-                    sizes.add(colorOption)
-                break
+            if (colorOption.optionDescriptionName == "Size" ){
+                sizes.add(colorOption)
+            }else{
+                colors.add(colorOption)
             }
         }
     }
     
-    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, options:[Option]) -> ProductInformationCollectionViewCell {
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, options:[Option], productDetatils:String) -> ProductInformationCollectionViewCell {
         let identifier = String(describing: self)
         
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductInformationCollectionViewCell
+        
+        let productDetatilsWithoutHtml = productDetatils.withoutHtml
+
+        cell.productDetailsLabel.text = productDetatilsWithoutHtml
         cell.filterOption(options: options)
         cell.sizeCollectionView.reloadData()
         cell.colorsCollectionView.reloadData()
@@ -67,14 +67,21 @@ class ProductInformationCollectionViewCell: UICollectionViewCell,UICollectionVie
         cell.cellHeight = cell.cellHeight - Float(cell.sizeViewHeightConstraint.constant) - Float(cell.colorViewsHeightConstraint.constant)
 
         cell.sizeViewHeightConstraint.constant = cell.sizeCollectionView.collectionViewLayout.collectionViewContentSize.height
-        cell.colorViewsHeightConstraint.constant = cell.colorsCollectionView.collectionViewLayout.collectionViewContentSize.height
+      
+        if (cell.colors.count != 0){
+            cell.colorViewsHeightConstraint.constant = cell.colorsCollectionView.collectionViewLayout.collectionViewContentSize.height
+        }else{
+            cell.colorTitleLabel.alpha = 0.0
+            cell.colorViewsHeightConstraint.constant = 0
+        }
         
-        cell.cellHeight = cell.cellHeight + Float(cell.sizeViewHeightConstraint.constant) + Float(cell.colorViewsHeightConstraint.constant)
+        let descriptionHeight = productDetatilsWithoutHtml.height(withConstrainedWidth: cell.productDetailsLabel.frame.width, font: cell.productDetailsLabel.font)
+        cell.cellHeight = cell.cellHeight + Float(cell.sizeViewHeightConstraint.constant) + Float(cell.colorViewsHeightConstraint.constant) + Float(descriptionHeight)
+
         return cell
     }
     
     //MARK: UICollectionViewDelegate
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == self.sizeCollectionView){
             return self.sizes.count
@@ -125,9 +132,21 @@ class ProductInformationCollectionViewCell: UICollectionViewCell,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    }
+}
+
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+
+        return ceil(boundingBox.height)
     }
 
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
 
-    
+        return ceil(boundingBox.width)
+    }
 }

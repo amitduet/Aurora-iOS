@@ -69,13 +69,13 @@ class ProductReviewCell: UICollectionViewCell {
     }
     
     
-    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, reviewList:[Review], rating: Int) -> ProductReviewCell {
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, reviewList:[Review], rating: String) -> ProductReviewCell {
         let identifier = String(describing: self)
         
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ProductReviewCell
         
-        cell.ratingLabel.text = String(format:"%ld",rating)
+        cell.ratingLabel.text = rating
         //String(format: "%@getWishList",BASE_URL)
         cell.totalNumberOfBuyerVarified.text = String(format:"%ld Number of Buyers",reviewList.count)
         

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Aurora BOLD.OTF">
+            <string>Averta-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="DWJ-xQ-C4O" customClass="HeaderViewCell" customModule="Aurora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehE-Cq-ZbP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mx-D3-xIX">
+                            <rect key="frame" x="10" y="10" width="315" height="40"/>
+                            <fontDescription key="fontDescription" name="Averta-Bold" family="Averta-Bold" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6C-7c-HBk">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DS-Dy-nkV">
+                            <rect key="frame" x="335" y="19" width="30" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="K9k-wx-zPn"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="down-arrow"/>
+                            <state key="selected" image="up-arrow"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="r6C-7c-HBk" secondAttribute="trailing" id="1d3-ra-buB"/>
+                        <constraint firstItem="5DS-Dy-nkV" firstAttribute="leading" secondItem="6Mx-D3-xIX" secondAttribute="trailing" constant="10" id="6ab-hb-QcQ"/>
+                        <constraint firstItem="r6C-7c-HBk" firstAttribute="leading" secondItem="ehE-Cq-ZbP" secondAttribute="leading" id="HGz-EV-WgT"/>
+                        <constraint firstItem="6Mx-D3-xIX" firstAttribute="leading" secondItem="ehE-Cq-ZbP" secondAttribute="leading" constant="10" id="OZf-fa-Z8P"/>
+                        <constraint firstAttribute="bottom" secondItem="r6C-7c-HBk" secondAttribute="bottom" id="Qry-9w-FmU"/>
+                        <constraint firstItem="r6C-7c-HBk" firstAttribute="top" secondItem="ehE-Cq-ZbP" secondAttribute="top" id="VZ7-Mz-hZ9"/>
+                        <constraint firstItem="5DS-Dy-nkV" firstAttribute="centerY" secondItem="ehE-Cq-ZbP" secondAttribute="centerY" id="asL-5A-BsC"/>
+                        <constraint firstAttribute="bottom" secondItem="6Mx-D3-xIX" secondAttribute="bottom" constant="10" id="hht-qf-lnu"/>
+                        <constraint firstAttribute="trailing" secondItem="5DS-Dy-nkV" secondAttribute="trailing" constant="10" id="rLd-NL-Ejs"/>
+                        <constraint firstItem="6Mx-D3-xIX" firstAttribute="top" secondItem="ehE-Cq-ZbP" secondAttribute="top" constant="10" id="zuu-S2-Qzg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ehE-Cq-ZbP" secondAttribute="bottom" id="BfZ-dP-3LE"/>
+                <constraint firstItem="ehE-Cq-ZbP" firstAttribute="leading" secondItem="DWJ-xQ-C4O" secondAttribute="leading" id="LHG-Er-rW0"/>
+                <constraint firstAttribute="trailing" secondItem="ehE-Cq-ZbP" secondAttribute="trailing" id="hHb-kx-TIc"/>
+                <constraint firstItem="ehE-Cq-ZbP" firstAttribute="top" secondItem="DWJ-xQ-C4O" secondAttribute="top" id="uUu-Ps-1ic"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ButtonToShowHide" destination="5DS-Dy-nkV" id="O8k-YF-V8h"/>
+                <outlet property="cellButton" destination="r6C-7c-HBk" id="l4R-o5-CDi"/>
+                <outlet property="titleLabel" destination="6Mx-D3-xIX" id="YFt-ka-GoN"/>
+            </connections>
+            <point key="canvasLocation" x="13.5" y="-73"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="down-arrow" width="15" height="15"/>
+        <image name="up-arrow" width="15" height="15"/>
+    </resources>
+</document>

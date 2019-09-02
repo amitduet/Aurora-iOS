@@ -11,7 +11,7 @@ import UIKit
 class CategoryWiseProductViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
 
     @IBOutlet weak var productCollectionView:UICollectionView!
-    var productList:ProductDto!
+    var productList:CategoryDetailsDto!
     public var productCategoryID:NSInteger!
 
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     func getProductListByCategoryId()  {
         APIManager.init().getCategoryProducts(categoryId: self.productCategoryID, success: { data in
             do {
-                self.productList = try JSONDecoder().decode(ProductDto.self, from: data)
+                self.productList = try JSONDecoder().decode(CategoryDetailsDto.self, from: data)
                 self.productCollectionView.reloadData()
             }catch let error as NSError{
                 debugPrint(error)
@@ -41,7 +41,7 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = ListProductCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, product: self.productList.productByCategory[indexPath.row]) as ListProductCollectionViewCell
+        let cell = ListProductCollectionViewCell.cellCategoryDetatils(collectionView: collectionView, indexPath: indexPath, product: self.productList.productByCategory[indexPath.row]) as ListProductCollectionViewCell
         return cell
     }
     

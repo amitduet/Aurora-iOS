@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcx-4L-LzD">
-                        <rect key="frame" x="10" y="10" width="300" height="23.5"/>
+                        <rect key="frame" x="60" y="10" width="250" height="23.5"/>
                         <fontDescription key="fontDescription" name="Averta-Bold" family="Averta-Bold" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                     <constraint firstItem="zcx-4L-LzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PBY-lK-G0h"/>
                     <constraint firstAttribute="trailing" secondItem="zcx-4L-LzD" secondAttribute="trailing" constant="10" id="iga-cM-Jte"/>
                     <constraint firstAttribute="bottom" secondItem="zcx-4L-LzD" secondAttribute="bottom" constant="10" id="qWc-Nx-Ao3"/>
-                    <constraint firstItem="zcx-4L-LzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="s4d-T6-9v3"/>
+                    <constraint firstItem="zcx-4L-LzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="s4d-T6-9v3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

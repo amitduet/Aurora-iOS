@@ -8,10 +8,13 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MenuDelegate {
+class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MenuDelegate,HeaderViewDelegate {
     
+    var collapaseHandlerArray = [Int]()
+
     @IBOutlet var categoryTableView:UITableView!
     var categoryDto:CategoryDto!
+    var numberOfSubCategory:Int = 0
     public var categoryId:NSInteger!
     
     fileprivate func setUpNavigationBar() {
@@ -42,6 +45,8 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBar()
+        let headerNib = UINib.init(nibName: "HeaderViewCell", bundle: Bundle.main)
+        categoryTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderViewCell")
 
 //        self.navigationController?.title = "Categories"
         APIManager.init().getProductCategories(categoryId: categoryId, success: { data in
@@ -61,18 +66,52 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         Global.menuAperar(viewController: self).delegate = self
     }
 
+    func numberOfSubCategory(categoryId:Int)->NSArray{
+        let subCategories:NSMutableArray = NSMutableArray.init()
+        
+        for category in self.categoryDto.subCategory{
+            if category.parentID == categoryId{
+                subCategories.add(category)
+            }
+        }
+        
+        return subCategories
+    }
+    //MARK:UITableView DataSource and Delegate
     
-    //MARK:UITableView DataSource and Delegate 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if (categoryDto != nil){
+            return self.categoryDto.category.count
+        }
+        return 0
+    }
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (categoryDto != nil){
-            return categoryDto.category.count
+            if self.collapaseHandlerArray.contains(section){
+                let category:Category = categoryDto.category[section]
+                let subCategories =  numberOfSubCategory(categoryId: category.categoryID)
+                return subCategories.count
+            }
+            else{
+                return 0
+            }
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CategoryTableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath, category: categoryDto.category[indexPath.row])
-        return cell
+        
+        let category:Category = categoryDto.category[indexPath.section]
+        let subCategories =  numberOfSubCategory(categoryId: category.categoryID)
+
+        if (subCategories.count > 0){
+            let cell = CategoryTableViewCell.cellForTableView(tableView: tableView, indexPath: indexPath, category: subCategories[indexPath.row] as! Category)
+            return cell
+        }
+        return UITableViewCell.init()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,14 +120,89 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderViewCell") as! HeaderViewCell
+        headerView.delegate = self
+        let category:Category = categoryDto.category[section]
+        headerView.titleLabel?.text = category.name
+        if (numberOfSubCategory(categoryId: category.categoryID).count == 0){
+            headerView.ButtonToShowHide.isHidden = true
+        }
+        
+        if self.collapaseHandlerArray.contains(section){//if its opened
+            headerView.ButtonToShowHide.setImage(UIImage.init(named: "up-arrow"), for: .normal)
+        }else{ //if closed
+            headerView.ButtonToShowHide.setImage(UIImage.init(named: "down-arrow"), for: .normal)
+        }
+        headerView.ButtonToShowHide.tag = section
+        headerView.ButtonToShowHide.addTarget(self, action: #selector(self.HandleheaderButton(sender:)), for: .touchUpInside)
+        return headerView
+    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.1
+        return 60
+    }
+    
+    
+     @objc func HandleheaderButton(sender: UIButton){
+        
+        let category:Category = categoryDto.category[sender.tag]
+
+        if (numberOfSubCategory(categoryId: category.categoryID).count == 0){
+            let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
+            productDetatilsVC?.productCategoryID = category.categoryID
+            self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+        }else{
+            if let buttonTitle = sender.image(for: .normal) {
+                if buttonTitle == UIImage.init(named: "down-arrow"){
+                    //if yes
+                    self.collapaseHandlerArray.append(sender.tag)
+                    sender.setImage(UIImage.init(named: "down-arrow"), for: .normal)
+                }
+                else {
+                    //if no
+                    while self.collapaseHandlerArray.contains(sender.tag){
+                        if let itemToRemoveIndex = self.collapaseHandlerArray.firstIndex(of: sender.tag) {
+                            //remove title of header from array
+                            self.collapaseHandlerArray.remove(at: itemToRemoveIndex)
+                            sender.setImage(UIImage.init(named: "down-arrow"), for: .normal)
+                            
+                        }
+                    }
+                }
+            }
+            //reload section
+            self.categoryTableView.reloadSections(IndexSet(integer: sender.tag), with: .none)
+        }
+    }
+
+    
+    func toggleSection(header: HeaderViewCell, section: Int) {
+        let category:Category = categoryDto.category[section]
+
+        if (numberOfSubCategory(categoryId: category.categoryID).count == 0){
+            let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
+            productDetatilsVC?.productCategoryID = categoryId
+            self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+        }else{
+            numberOfSubCategory = numberOfSubCategory(categoryId: category.categoryID).count
+            categoryTableView.reloadData()
+           // categoryTableView.reloadSections([section], with: .none)
+        }
+
+    }
+
+    func toggleSection (button:UIButton){
+        HandleheaderButton(sender: button)
     }
 
     //MARK: Menu Delgate
     func didSelectCategory(categoryId: Int) {
-//        self.mainCategoryId = categoryId
-//        fetchHomeCategoryRequest()
+        
+        let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
+        productDetatilsVC?.productCategoryID = categoryId
+        self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
     }
     
     func didSelectUserInAcitvites(activitesId: Int) {

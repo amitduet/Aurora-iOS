@@ -96,7 +96,9 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
             let cell = ProductReviewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, reviewList:self.productDetatilsDto.review, rating: self.productDetatilsDto.rating)
             return cell;
         default:
-            let cell = ProductInformationCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, options: self.productDetatilsDto.options)
+            
+            let prodcutDetatils = self.productDetatilsDto.productDetails[0]
+            let cell = ProductInformationCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, options: self.productDetatilsDto.options, productDetatils:prodcutDetatils.productDetailDescription)
             cell.frame = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width, height: CGFloat(cell.cellHeight))
             return cell
         }
@@ -112,10 +114,8 @@ class ProductDetailsViewController: UIViewController,UICollectionViewDataSource,
             return CGSize(width: width, height: 400)
         case 2:
             return CGSize(width: width, height: 150)
-
-           // return CGSize(width: width, height: 40)
         default:
-            return CGSize(width: width, height: 400)
+            return CGSize(width: width, height: 600)
         }
     }
     
