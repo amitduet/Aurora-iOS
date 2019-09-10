@@ -19,12 +19,12 @@ class SizeCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.init(hex: Global.cellBorderColor)?.cgColor
     }
 
-    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, option:Option) -> SizeCollectionViewCell {
+    class func cellForCollectionView(collectionView: UICollectionView, indexPath:IndexPath, option:Color) -> SizeCollectionViewCell {
         let identifier = String(describing: self)
         
         collectionView.register(UINib(nibName: identifier, bundle: Bundle.main), forCellWithReuseIdentifier: identifier)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! SizeCollectionViewCell
-        cell.sizeLabel.text = option.optionValueDescriptionName
+        cell.sizeLabel.text = option.name
         return cell
     }
 

@@ -11,12 +11,40 @@ import UIKit
 class CategoryWiseProductViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
 
     @IBOutlet weak var productCollectionView:UICollectionView!
+    @IBOutlet weak var listButton:UIButton!
+    @IBOutlet weak var gridButton:UIButton!
+    @IBOutlet weak var filterButton:UIButton!
+    @IBOutlet weak var sortButton:UIButton!
+    
     var productList:CategoryDetailsDto!
     public var productCategoryID:NSInteger!
 
+    @objc func menuButtonDidTap(){
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         getProductListByCategoryId()
+        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 25))
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.addTarget(self, action: #selector(menuButtonDidTap), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backButton)]
+    }
+    
+    //MARK: UIButton Action
+    @IBAction func listButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func gridButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func filterButtonPressed(_ sender: Any) {
+        let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: FilterViewController.self))as? FilterViewController
+        productDetatilsVC?.productCategoryID = productCategoryID
+        self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
+    }
+    
+    @IBAction func sortButtonPressed(_ sender: UIButton) {
     }
     
     //MARK: API Request
@@ -61,7 +89,6 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 

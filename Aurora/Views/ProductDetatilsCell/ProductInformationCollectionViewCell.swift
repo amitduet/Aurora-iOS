@@ -96,7 +96,7 @@ class ProductInformationCollectionViewCell: UICollectionViewCell,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if (collectionView == self.sizeCollectionView){
-            let cell = SizeCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, option:self.sizes?[indexPath.row] as! Option)
+            let cell = SizeCollectionViewCell.cellForCollectionView(collectionView: collectionView, indexPath: indexPath, option:self.sizes?[indexPath.row] as! Color)
             
             return cell
         }else {

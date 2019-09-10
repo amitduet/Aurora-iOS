@@ -115,8 +115,13 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let category:Category = categoryDto.category[indexPath.section]
+        let subCategories =  numberOfSubCategory(categoryId: category.categoryID)
+        let subCategory = subCategories[indexPath.row] as! Category
+        
         let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
-        productDetatilsVC?.productCategoryID = categoryDto.category[indexPath.row].categoryID
+        productDetatilsVC?.productCategoryID = subCategory.categoryID
         self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
     }
     
@@ -172,27 +177,10 @@ class CategoryViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     }
                 }
             }
-            //reload section
             self.categoryTableView.reloadSections(IndexSet(integer: sender.tag), with: .none)
         }
     }
-
     
-    func toggleSection(header: HeaderViewCell, section: Int) {
-        let category:Category = categoryDto.category[section]
-
-        if (numberOfSubCategory(categoryId: category.categoryID).count == 0){
-            let productDetatilsVC =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: CategoryWiseProductViewController.self))as? CategoryWiseProductViewController
-            productDetatilsVC?.productCategoryID = categoryId
-            self.navigationController?.pushViewController(productDetatilsVC!, animated: true)
-        }else{
-            numberOfSubCategory = numberOfSubCategory(categoryId: category.categoryID).count
-            categoryTableView.reloadData()
-           // categoryTableView.reloadSections([section], with: .none)
-        }
-
-    }
-
     func toggleSection (button:UIButton){
         HandleheaderButton(sender: button)
     }
