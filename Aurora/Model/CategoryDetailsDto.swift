@@ -8,7 +8,7 @@ import Foundation
 // MARK: - CategoryDetailsDto
 class CategoryDetailsDto: Codable {
     let status: Bool
-    let productByCategory: [ProductByCategoryDetatils]
+    var productByCategory: [ProductByCategoryDetatils]
     
     init(status: Bool, productByCategory: [ProductByCategoryDetatils]) {
         self.status = status

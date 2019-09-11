@@ -16,6 +16,13 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     @IBOutlet weak var filterButton:UIButton!
     @IBOutlet weak var sortButton:UIButton!
     
+    @IBOutlet weak var sortView:UIView!
+    
+    @IBOutlet weak var newSortButton:UIButton!
+    @IBOutlet weak var popularitySortButton:UIButton!
+    @IBOutlet weak var lowPriceSortButton:UIButton!
+    @IBOutlet weak var highPriceSortButton:UIButton!
+    
     var productList:CategoryDetailsDto!
     public var productCategoryID:NSInteger!
 
@@ -29,9 +36,73 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
         backButton.setImage(UIImage(named: "back"), for: .normal)
         backButton.addTarget(self, action: #selector(menuButtonDidTap), for: .touchUpInside)
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: backButton)]
+        defaultSortSet()
+        sortView.layer.zPosition = 1
+    }
+    
+    func defaultSortSet (){
+        let index = 1
+        switch  index{
+        case 1:
+            newSortButton.isSelected = true
+            break
+        case 2:
+            popularitySortButton.isSelected = true
+            break
+        case 3:
+            lowPriceSortButton.isSelected = true
+            break
+        case 4:
+            highPriceSortButton.isSelected = true
+            break
+        default:
+            break
+        }
+    }
+    
+    //MARK: Sort product list
+    
+    func sortProductList(selectedIndex:Int){
+        if (self.productList != nil){
+            switch  selectedIndex{
+            case 1:
+                self.productList.productByCategory = self.productList.productByCategory.sorted(by: { $0.productID > $1.productID })
+
+                break
+            case 2:
+                self.productList.productByCategory = self.productList.productByCategory.sorted(by: { $0.review >  $1.review })
+
+                break
+            case 3:
+                self.productList.productByCategory = self.productList.productByCategory.sorted(by: { $0.price.floatValue < $1.price.floatValue  })
+                break
+            default:
+                self.productList.productByCategory = self.productList.productByCategory.sorted(by: { $0.price.floatValue > $1.price.floatValue  })
+                break
+            }
+            self.productCollectionView.reloadData()
+        }
+
     }
     
     //MARK: UIButton Action
+    @IBAction func sortsButtonPressed(_ sender:UIButton){
+        
+        for subView in sortView.subviews{
+            if subView is UIButton{
+                let subViewButton:UIButton = subView as! UIButton
+                if (sender == subView){
+                    sender.isSelected = true
+                }else{
+                   subViewButton.isSelected = false
+                }
+            }
+        }
+        
+        self.sortProductList(selectedIndex: sender.tag)
+
+    }
+    
     @IBAction func listButtonPressed(_ sender: UIButton) {
     }
     
@@ -45,6 +116,7 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
     }
     
     @IBAction func sortButtonPressed(_ sender: UIButton) {
+        sortView.isHidden = !sortView.isHidden
     }
     
     //MARK: API Request
@@ -94,3 +166,10 @@ class CategoryWiseProductViewController: UIViewController,UICollectionViewDelega
 
 
 }
+
+extension String {
+//    var floatValue: Float {
+//        return (self as NSString).floatValue
+//    }
+}
+

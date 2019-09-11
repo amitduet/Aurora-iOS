@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -385,10 +386,9 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpy-Yk-Qox">
-                                <rect key="frame" x="266" y="10" width="44" height="44"/>
+                                <rect key="frame" x="280" y="10" width="30" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mQM-VD-rB5"/>
-                                    <constraint firstAttribute="width" constant="44" id="nyy-49-tbs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                 <state key="normal" title="Sort">
@@ -399,10 +399,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-iV-bMa">
-                                <rect key="frame" x="206" y="10" width="44" height="44"/>
+                                <rect key="frame" x="220" y="10" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="11k-ok-CdX"/>
-                                    <constraint firstAttribute="width" constant="44" id="9jL-DW-I6X"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="9jL-DW-I6X"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="13"/>
                                 <state key="normal" title="Filter">
@@ -412,6 +412,76 @@
                                     <action selector="filterButtonPressed:" destination="6M3-hO-lWh" eventType="touchUpInside" id="Krl-ja-ytp"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlc-n2-F4U">
+                                <rect key="frame" x="173" y="54" width="137" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3O-Is-0oM">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="10"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Newest">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="textSelectedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortsButtonPressed:" destination="6M3-hO-lWh" eventType="touchUpInside" id="THF-9T-ymJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JI-Iq-pCV">
+                                        <rect key="frame" x="0.0" y="30" width="137" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="10"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Popularity">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="textSelectedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortsButtonPressed:" destination="6M3-hO-lWh" eventType="touchUpInside" id="L1n-7I-IGI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g06-Lm-Ene">
+                                        <rect key="frame" x="0.0" y="60" width="137" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="10"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Price: Low to High">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="textSelectedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortsButtonPressed:" destination="6M3-hO-lWh" eventType="touchUpInside" id="dRy-f0-dx6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRL-Xj-dbI">
+                                        <rect key="frame" x="0.0" y="98" width="137" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Averta-Regular" family="Averta-Regular" pointSize="10"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Price: High to Low">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" name="textSelectedColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortsButtonPressed:" destination="6M3-hO-lWh" eventType="touchUpInside" id="tbq-v5-Yvl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="ofM-YH-6zr"/>
+                                    <constraint firstAttribute="width" constant="137" id="yIc-AC-n5f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -424,18 +494,26 @@
                             <constraint firstItem="Vpy-Yk-Qox" firstAttribute="top" secondItem="SO1-Qj-UuI" secondAttribute="top" constant="10" id="O69-9n-m6X"/>
                             <constraint firstItem="ITm-cp-IIR" firstAttribute="top" secondItem="MT0-30-JKg" secondAttribute="top" constant="60" id="Q9x-yD-7ZX"/>
                             <constraint firstItem="o31-lj-0IU" firstAttribute="top" secondItem="szD-iV-bMa" secondAttribute="top" id="XUK-qG-qpg"/>
+                            <constraint firstItem="szD-iV-bMa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8W5-JN-QKQ" secondAttribute="trailing" constant="8" symbolic="YES" id="fax-i9-02I"/>
                             <constraint firstItem="ITm-cp-IIR" firstAttribute="leading" secondItem="MT0-30-JKg" secondAttribute="leading" id="jOY-M0-UKM"/>
+                            <constraint firstItem="tlc-n2-F4U" firstAttribute="trailing" secondItem="Vpy-Yk-Qox" secondAttribute="trailing" id="o4E-0f-O6M"/>
                             <constraint firstItem="MT0-30-JKg" firstAttribute="bottom" secondItem="ITm-cp-IIR" secondAttribute="bottom" id="u1y-KS-f90"/>
                             <constraint firstItem="MT0-30-JKg" firstAttribute="trailing" secondItem="Vpy-Yk-Qox" secondAttribute="trailing" constant="10" id="yLe-0k-M5n"/>
+                            <constraint firstItem="tlc-n2-F4U" firstAttribute="top" secondItem="Vpy-Yk-Qox" secondAttribute="bottom" id="yfW-om-QbX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MT0-30-JKg"/>
                     </view>
                     <connections>
                         <outlet property="filterButton" destination="szD-iV-bMa" id="fFK-oc-sMn"/>
                         <outlet property="gridButton" destination="8W5-JN-QKQ" id="1wa-3L-SNZ"/>
+                        <outlet property="highPriceSortButton" destination="xRL-Xj-dbI" id="tn5-dj-6oc"/>
                         <outlet property="listButton" destination="o31-lj-0IU" id="V5s-Nx-wZ3"/>
+                        <outlet property="lowPriceSortButton" destination="g06-Lm-Ene" id="Ovl-ZF-cCG"/>
+                        <outlet property="newSortButton" destination="w3O-Is-0oM" id="ncu-qE-8ng"/>
+                        <outlet property="popularitySortButton" destination="3JI-Iq-pCV" id="otR-wU-T9b"/>
                         <outlet property="productCollectionView" destination="ITm-cp-IIR" id="Qzl-e1-6hx"/>
                         <outlet property="sortButton" destination="Vpy-Yk-Qox" id="FdD-tN-qR4"/>
+                        <outlet property="sortView" destination="tlc-n2-F4U" id="HXH-YC-6zr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLh-GZ-C9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,7 +634,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNn-mk-FzE" userLabel="Previous Label">
-                                        <rect key="frame" x="213.5" y="65.5" width="26.5" height="10"/>
+                                        <rect key="frame" x="215.5" y="65.5" width="24.5" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="cld-II-5tE"/>
                                         </constraints>
@@ -565,7 +643,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9E-I8-pgW" userLabel="Current price ">
-                                        <rect key="frame" x="146" y="63" width="46" height="15"/>
+                                        <rect key="frame" x="146" y="62" width="42" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -823,7 +901,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mtB-lq-506">
-                                <rect key="frame" x="10" y="63" width="300" height="133"/>
+                                <rect key="frame" x="10" y="65.5" width="300" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="dzl-uE-PPZ"/>
@@ -850,19 +928,19 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-sI-5fn">
-                                <rect key="frame" x="10" y="30" width="25" height="13"/>
+                                <rect key="frame" x="10" y="30" width="25" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b4-rv-mPM">
-                                <rect key="frame" x="10" y="216" width="31" height="13"/>
+                                <rect key="frame" x="10" y="218.5" width="30" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Averta-Semibold" family="Averta-Semibold" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBf-zn-Iiy">
-                                <rect key="frame" x="10" y="244" width="50" height="13"/>
+                                <rect key="frame" x="10" y="249" width="50" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Pt2-5i-mlW"/>
                                 </constraints>
@@ -871,7 +949,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLF-bx-Lpw">
-                                <rect key="frame" x="260" y="244" width="50" height="13"/>
+                                <rect key="frame" x="260" y="249" width="50" height="13"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="0cy-0k-dx5"/>
                                 </constraints>
@@ -880,7 +958,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="1zl-Pr-9qg">
-                                <rect key="frame" x="8" y="277" width="304" height="41"/>
+                                <rect key="frame" x="8" y="282" width="304" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BGi-cQ-Q9y"/>
                                 </constraints>
@@ -961,5 +1039,11 @@
         <image name="men" width="360" height="568"/>
         <image name="ops" width="141.5" height="141.5"/>
         <image name="wish" width="16" height="15"/>
+        <namedColor name="textColor">
+            <color red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textSelectedColor">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
