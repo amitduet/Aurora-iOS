@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import UserNotifications
 import FacebookCore
 import GoogleSignIn
@@ -18,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
-
     //https://www.iosapptemplates.com/blog/ios-development/push-notifications-firebase-swift-5
+    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         APIManager.init().getAccessToken(success: { (token) in
@@ -31,20 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         return true
     }
     
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let appId: String = SDKSettings.appId
-//        if url.scheme != nil && url.scheme!.hasPrefix("fb\(appId)") && url.host ==  "authorize" {
-//            return SDKApplicationDelegate.shared.application(app, open: url, options: options)
-//        }
-//        return false
-//    }
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FirebaseApp.configure()
-        GIDSignIn.sharedInstance().clientID = "301198515480-vr7bjtluqottd2i8l700plhvs9q1ri8j.apps.googleusercontent.com"
+//        FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = "301198515480-c9lruudm64ktusp05o1mge429s8b1jk8.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
         pushNotificationSetup(application: application)
@@ -158,18 +148,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     //MARK:Google Sigin Delegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+//                                                       accessToken: authentication.accessToken)
+//
+//        debugPrint(user)
+//        debugPrint(error)
+    
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            } else {
+                print("\(error.localizedDescription)")
+            }
+            return
+        }
+        // Perform any operations on signed in user here.
+        let userId = user.userID                  // For client-side use only!
+        let idToken = user.authentication.idToken // Safe to send to the server
+        let fullName = user.profile.name
+        let givenName = user.profile.givenName
+        let familyName = user.profile.familyName
+        let email = user.profile.email
 
-        debugPrint(user)
-        debugPrint(error)
+        print(userId!)
+        print(idToken!)
+        print(fullName!)
+        print(givenName!)
+        print(familyName!)
+        print(email!)
+        
     }
 
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
+        print("User has disconnected")
     }
 
 }
@@ -204,34 +219,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
         // Print full message.
         print(userInfo)
-        
         completionHandler()
     }
-}
-
-extension AppDelegate : MessagingDelegate {
-    // [START refresh_token]
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        
-        let dataDict:[String: String] = ["token": fcmToken]
-        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
-    }
-    // [END refresh_token]
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
-    }
-    // [END ios_10_data_message]
-    
-
 }
 
 

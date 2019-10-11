@@ -65,6 +65,7 @@
 		8FFA7FDD2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */; };
 		8FFA7FE022637BC4002A96B9 /* SliderImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */; };
 		8FFA7FE122637BC4002A96B9 /* SliderImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */; };
+		8FFA90582333E5D800FBF92F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA90572333E5D800FBF92F /* WebViewController.swift */; };
 		8FFA91BE22906D5600BC0C71 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA91BD22906D5600BC0C71 /* SignInViewController.swift */; };
 		8FFAD07A2316C83200D992AF /* HeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FFAD0792316C83200D992AF /* HeaderViewCell.xib */; };
 		8FFAF8FA228B147100A3B690 /* RatingNReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFAF8F9228B147100A3B690 /* RatingNReviewViewController.swift */; };
@@ -150,6 +151,7 @@
 		8FFA7FDB2263760F002A96B9 /* OfferSLiderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferSLiderCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FFA7FDE22637BC4002A96B9 /* SliderImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8FFA7FDF22637BC4002A96B9 /* SliderImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FFA90572333E5D800FBF92F /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		8FFA91BD22906D5600BC0C71 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8FFAD0792316C83200D992AF /* HeaderViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewCell.xib; sourceTree = "<group>"; };
 		8FFAF8F9228B147100A3B690 /* RatingNReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingNReviewViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		8F0D9D0C22527E6E00988960 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8FFA90562333E5B700FBF92F /* WebView */,
 				8FFD2894231EBF690071FA76 /* Search */,
 				8FFD288F231EBF1A0071FA76 /* Sort */,
 				8FFD288E231EBF110071FA76 /* Filter */,
@@ -364,6 +367,14 @@
 				8FFA78BE228EE90B0098589A /* OnSaleProductsCollectionViewCell.xib */,
 			);
 			path = HomeProductCell;
+			sourceTree = "<group>";
+		};
+		8FFA90562333E5B700FBF92F /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				8FFA90572333E5D800FBF92F /* WebViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		8FFB1CD82270C8AB0022CA55 /* ProductDetatilsCell */ = {
@@ -590,11 +601,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -609,11 +617,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -652,6 +657,7 @@
 				8F07BE19225CE21900B43D71 /* HomeViewController.swift in Sources */,
 				8F004B6D22C510D700CDC110 /* MainMenuView.swift in Sources */,
 				8FFB1CDB2270C90D0022CA55 /* ProductDescriptionCollectionViewCell.swift in Sources */,
+				8FFA90582333E5D800FBF92F /* WebViewController.swift in Sources */,
 				8FFD2893231EBF650071FA76 /* SortViewController.swift in Sources */,
 				8F0D9CFA22527BE700988960 /* ViewController.swift in Sources */,
 				8FF51E852289BF4C00B28129 /* ColorCollectionViewCell.swift in Sources */,

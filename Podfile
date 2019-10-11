@@ -11,9 +11,8 @@ target 'Aurora' do
   pod 'SDWebImage', '~> 4.0'
   pod 'Alamofire'
   pod 'CHIPageControl/Jaloro'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Messaging'
+#  pod 'Firebase/Analytics'
+#  pod 'Firebase/Messaging'
   pod 'Cosmos', '~> 19.0'
 
   # Facebook POD
@@ -21,7 +20,14 @@ target 'Aurora' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   
+#  #push notification
+#  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+#  
   # Google Sign In 
   pod 'GoogleSignIn'
 
 end
+
+#target 'OneSignalNotificationServiceExtension' do
+#    pod 'OneSignal', '>= 2.6.2', '< 3.0'
+#end

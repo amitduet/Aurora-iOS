@@ -16,14 +16,11 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
 
-//    let googleSiginButton = GIDSignInButton(frame: CGRect(x: 10, y: 10, width: 100, height: 50))
     override func viewDidLoad() {
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance().uiDelegate = self
-//        googleSiginButton.center = self.view.center
-//        self.view.addSubview(googleSiginButton)
-        // Do any additional setup after loading the view.
+        GIDSignIn.sharedInstance()?.signInSilently() // user in background sign in automatically
     }
     
 
@@ -31,7 +28,7 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate {
         
         // facebooks
         //https://www.youtube.com/watch?v=7R3DLfLkhtc
-        
+        //https://www.youtube.com/watch?v=7R3DLfLkhtc&t=432s
         let manager = LoginManager()
         manager.logIn(permissions: [.publicProfile,.email], viewController: self) { (result) in
             
@@ -40,8 +37,11 @@ class SignInViewController: UIViewController,GIDSignInUIDelegate {
                     debugPrint("use cancel")
                 break
             case .success(let granted, let declined, let token):
-                debugPrint("Access token == \(token)")
-                
+                debugPrint("Access token == \(token.appID)")
+                debugPrint("Access token == \(token.tokenString)")
+                debugPrint("Access token == \(token.userID)")
+               // debugPrint("Access token == \(token.au)")
+
                 break
             case .failed(let error):
                 debugPrint(error.localizedDescription)

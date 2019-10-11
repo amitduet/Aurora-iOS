@@ -19,27 +19,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb181905736075350</string>
-				<string>com.googleusercontent.apps.819439700590-9jq8sn0426f756n69anip86o2ivs1ofo</string>
-				<string></string>
-			</array>
-		</dict>
-		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.301198515480-vr7bjtluqottd2i8l700plhvs9q1ri8j</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.amitchowdhury.Aurora1</string>
+				<string>com.googleusercontent.apps.301198515480-c9lruudm64ktusp05o1mge429s8b1jk8</string>
 			</array>
 		</dict>
 	</array>
@@ -99,5 +85,30 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+    
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb2115700212024167</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>2115700212024167</string>
+    <key>FacebookDisplayName</key>
+    <string>DemoSuperDo</string>
+    
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+    
 </dict>
 </plist>

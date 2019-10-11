@@ -202,12 +202,24 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     func didSelectUserInAcitvites(activitesId: Int) {
-        let siginViewController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: SignInViewController.self))as? SignInViewController
-        self.navigationController?.pushViewController(siginViewController!, animated: true)
+        
+        if (activitesId == 0){
+            let siginViewController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: SignInViewController.self))as? SignInViewController
+            self.navigationController?.pushViewController(siginViewController!, animated: true)
+
+        }else{
+           // WebViewController
+
+        }
+        
     }
     
     func didSelectAppSupport(supportId: Int) {
-        
+        if supportId < 4{
+            let webViewController =  UIStoryboard.init(name: Global.STORY_BOARD_NAME, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: WebViewController.self))as? WebViewController
+            webViewController?.supportActionType = supportId
+            self.navigationController?.pushViewController(webViewController!, animated: true)
+        }
     }
     
     func didSelectSignOutButton() {

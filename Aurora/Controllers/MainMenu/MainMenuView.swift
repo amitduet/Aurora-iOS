@@ -7,6 +7,19 @@
 //
 
 import UIKit
+enum MenuType:Int {
+    case Wishlist = 0
+    case MyAccount
+    case MyShoppingCart
+    case MyPurchaseHistory
+    case AboutUs
+    case ContactUs
+    case PrivacyPolicy
+    case CancellationAndRefund
+    case RateOurApp
+    
+}
+
 protocol MenuDelegate {
     func didSelectCategory(categoryId:Int)
     func didSelectUserInAcitvites(activitesId:Int)
@@ -39,7 +52,7 @@ class MainMenuView: UIView,UITableViewDelegate,UITableViewDataSource {
     }
     
     let userRelatedList:[String] = ["Wishlist","My Account","My Shopping Cart","My Purchase History"]
-    let appInformationList:[String] = ["About Us","Contact Us","Help & FAQ","Rate our Apps"]
+    let appInformationList:[String] = ["About Us","Contact Us","Privacy Policy","Cancellation and Refund","Rate Our App"]
 
     
     //MARK:UITableView DataSource and Delegate
